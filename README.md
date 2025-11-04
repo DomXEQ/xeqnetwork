@@ -13,7 +13,7 @@ A modern, professional website for Equilibria XEQ Network - The World's First Pr
 
 ```
 XEQ Website/
-├── xeqnetworkdraft.html  # Main website file (standalone HTML)
+├── index.html            # Main website file (standalone HTML)
 ├── xeq-network-page.json # Original Elementor JSON export (reference)
 ├── README.md             # This file
 ├── LICENSE               # MIT License
@@ -24,14 +24,14 @@ XEQ Website/
 
 ### Viewing the Website
 
-Simply open `xeqnetworkdraft.html` in any modern web browser:
+Simply open `index.html` in any modern web browser:
 - Double-click the file, or
 - Right-click → Open with → Browser
 - Or drag and drop into a browser window
 
 ### Editing
 
-The website is pure HTML/CSS/JavaScript - no build process needed! Just edit `xeqnetworkdraft.html` directly.
+The website is pure HTML/CSS/JavaScript - no build process needed! Just edit `index.html` directly.
 
 ## 🎨 Brand Colors
 
@@ -51,7 +51,7 @@ This is a collaborative project. When making changes:
 ## 📝 Notes
 
 - The website is standalone - no WordPress or Elementor required
-- All styles are in the `<style>` tag within `preview.html`
+- All styles are in the `<style>` tag within `index.html`
 - Images are currently loaded from the WordPress media library (can be moved locally later)
 - The Elementor JSON file is kept for reference but not used in the final site
 
