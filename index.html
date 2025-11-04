@@ -954,18 +954,18 @@
               animation: blockPulse 1.6s ease-in-out infinite 0.55s;
           }
 
-          @keyframes iconPulse {
-              0%, 100% {
-                  opacity: 1;
-                  transform: scale(1);
-                  filter: drop-shadow(0 0 5px rgba(18, 159, 202, 0.5));
-              }
-              50% {
-                  opacity: 0.9;
-                  transform: scale(1.15);
-                  filter: drop-shadow(0 0 15px rgba(18, 159, 202, 0.8));
-              }
-          }
+                     @keyframes iconPulse {
+               0%, 100% {
+                   opacity: 1;
+                   transform: translateY(0) scale(1);
+                   filter: drop-shadow(0 0 5px rgba(18, 159, 202, 0.5));
+               }
+               50% {
+                   opacity: 0.9;
+                   transform: translateY(-8px) scale(1.1);
+                   filter: drop-shadow(0 0 15px rgba(18, 159, 202, 0.8));
+               }
+           }
 
           @keyframes linePulse {
               0%, 100% {
