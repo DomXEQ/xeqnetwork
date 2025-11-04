@@ -731,14 +731,116 @@
              font-weight: 500;
          }
 
-         .team-member p {
-             font-size: 15px;
-             color: #FFFFFF;
-             line-height: 1.6;
-             opacity: 0.9;
-         }
+                   .team-member p {
+              font-size: 15px;
+              color: #FFFFFF;
+              line-height: 1.6;
+              opacity: 0.9;
+          }
 
-         /* Social Section */
+          /* FAQ Section */
+          .faq-section {
+              padding: 120px 40px;
+              max-width: 90%;
+              margin: 0 auto;
+              border-top: 1px solid rgba(18, 159, 202, 0.2);
+              position: relative;
+              z-index: 1;
+          }
+
+          .faq-header {
+              text-align: center;
+              margin-bottom: 80px;
+          }
+
+          .faq-title {
+              font-size: 48px;
+              font-weight: 700;
+              color: #FFFFFF;
+              margin-bottom: 20px;
+              line-height: 1.2;
+          }
+
+          .faq-container {
+              max-width: 900px;
+              margin: 0 auto;
+          }
+
+          .faq-item {
+              margin-bottom: 20px;
+              background-color: rgba(18, 159, 202, 0.05);
+              border: 1px solid rgba(18, 159, 202, 0.2);
+              border-radius: 12px;
+              overflow: hidden;
+              transition: all 0.3s ease;
+          }
+
+          .faq-item:hover {
+              border-color: rgba(18, 159, 202, 0.4);
+          }
+
+          .faq-question {
+              width: 100%;
+              padding: 25px 30px;
+              background: transparent;
+              border: none;
+              text-align: left;
+              color: #FFFFFF;
+              font-size: 18px;
+              font-weight: 600;
+              font-family: 'Poppins', sans-serif;
+              cursor: pointer;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 20px;
+              transition: all 0.3s ease;
+          }
+
+          .faq-question:hover {
+              color: #129fca;
+          }
+
+          .faq-question span {
+              flex: 1;
+          }
+
+          .faq-arrow {
+              width: 24px;
+              height: 24px;
+              color: #129fca;
+              transition: transform 0.3s ease;
+              flex-shrink: 0;
+          }
+
+          .faq-item.active .faq-arrow {
+              transform: rotate(180deg);
+          }
+
+          .faq-item.active .faq-question {
+              color: #129fca;
+          }
+
+          .faq-answer {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.4s ease, padding 0.4s ease;
+              padding: 0 30px;
+          }
+
+          .faq-item.active .faq-answer {
+              max-height: 500px;
+              padding: 0 30px 25px 30px;
+          }
+
+          .faq-answer p {
+              font-size: 16px;
+              color: rgba(255, 255, 255, 0.9);
+              line-height: 1.8;
+              margin: 0;
+          }
+
+          /* Social Section */
          .social-section {
              padding: 80px 40px;
              border-top: 1px solid rgba(18, 159, 202, 0.2);
@@ -1345,11 +1447,36 @@
                  font-size: 32px;
              }
 
-             .team-member {
-                 min-width: 100%;
-             }
+                           .team-member {
+                  min-width: 100%;
+              }
 
-             .social-section {
+              .faq-section {
+                  padding: 80px 20px;
+              }
+
+              .faq-title {
+                  font-size: 32px;
+              }
+
+              .faq-question {
+                  padding: 20px;
+                  font-size: 16px;
+              }
+
+              .faq-answer {
+                  padding: 0 20px;
+              }
+
+              .faq-item.active .faq-answer {
+                  padding: 0 20px 20px 20px;
+              }
+
+              .faq-answer p {
+                  font-size: 15px;
+              }
+
+              .social-section {
                  padding: 60px 20px;
              }
 
@@ -1366,14 +1493,15 @@
                      <img src="https://raw.githubusercontent.com/DomXEQ/xeqnetwork/main/Equilibria.png" alt="Equilibria Logo" />
                  </a>
          <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
-                   <ul class="nav-links" id="navLinks">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#use-cases">Use Cases</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="#social">Social</a></li>
-          </ul>
+                                       <ul class="nav-links" id="navLinks">
+               <li><a href="#home">Home</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#features">Features</a></li>
+               <li><a href="#use-cases">Use Cases</a></li>
+               <li><a href="#team">Team</a></li>
+               <li><a href="#faq">FAQ</a></li>
+               <li><a href="#social">Social</a></li>
+           </ul>
          <div class="nav-buttons">
              <a href="https://nonkyc.io/market/XEQ_BTC" class="nav-btn nav-btn-primary" target="_blank">Buy $XEQ</a>
              <a href="https://equilibria-network.gitbook.io/docs/" class="nav-btn nav-btn-outline" target="_blank">Docs</a>
@@ -1886,9 +2014,77 @@
                  <p>The CRC is a community group that supports the Equilibria ecosystem by facilitating communication, assisting with governance, and providing feedback on the project's direction. CRC members act as liaisons between the core team and the community, ensuring transparency, collaboration, and decentralized decision-making.</p>
              </div>
          </div>
-     </section>
+           </section>
 
-     <!-- Social Section -->
+      <!-- FAQ Section -->
+      <section class="faq-section" id="faq">
+          <div class="faq-header">
+              <h2 class="faq-title">Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-container">
+              <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false">
+                      <span>What is Equilibria (XEQ)?</span>
+                      <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                  </button>
+                  <div class="faq-answer">
+                      <p>Equilibria (XEQ) is a next-generation privacy cryptocurrency launching in 2025, designed specifically for developers building private decentralized applications. Built on a Monero-based fork of the Oxen codebase, Equilibria combines advanced privacy technology with a sustainable Proof-of-Stake consensus model, enabling users to stake XEQ, validate transactions, and earn rewards while participating in network governance.</p>
+                  </div>
+              </div>
+
+              <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false">
+                      <span>How does the private data oracle work?</span>
+                      <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                  </button>
+                  <div class="faq-answer">
+                      <p>Equilibria's Private Oracle System operates as a decentralized network of nodes that validate and transmit off-chain data to decentralized applications. Similar to a satellite mesh network, our oracle nodes deliver secure, real-time data feeds—such as asset prices or market metrics—while ensuring accuracy, reliability, and enhanced privacy for integrated projects. The system maintains data integrity without compromising user privacy or sensitive information.</p>
+                  </div>
+              </div>
+
+              <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false">
+                      <span>How can I stake XEQ and earn rewards?</span>
+                      <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                  </button>
+                  <div class="faq-answer">
+                      <p>To stake XEQ, you'll need to run a validator node with a minimum stake requirement. Validators earn XEQ rewards through network block rewards and transaction fees. Additionally, operators of oracle and data feed nodes can earn XEQ through service fees paid by dApps leveraging the platform. The Proof-of-Stake model incentivizes long-term network participation and decentralization, offering meaningful returns for those who help power the Equilibria ecosystem.</p>
+                  </div>
+              </div>
+
+              <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false">
+                      <span>What makes Equilibria different from other privacy coins?</span>
+                      <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                  </button>
+                  <div class="faq-answer">
+                      <p>Equilibria distinguishes itself through its developer-first approach and integrated private data oracle network. Unlike traditional privacy coins focused solely on transaction privacy, Equilibria provides a complete platform for building privacy-first decentralized applications. The combination of ring signatures, stealth addresses, anonymous transactions, and a decentralized oracle network creates a unique ecosystem that protects both user privacy and application data while enabling developers to build innovative privacy-enhancing solutions.</p>
+                  </div>
+              </div>
+
+              <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false">
+                      <span>When will Equilibria launch?</span>
+                      <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                  </button>
+                  <div class="faq-answer">
+                      <p>Equilibria is scheduled to launch in 2025. The network will begin with a testnet phase where developers and community members can participate, test the platform, and provide feedback. To stay updated on the launch timeline and join the testnet, follow our community channels and documentation. We're building towards a robust, secure, and privacy-focused blockchain that will empower developers to create the next generation of decentralized applications.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Social Section -->
      <section class="social-section" id="social">
          <div class="social-header">
              <h2 class="social-title">Follow us, join the community for the latest updates!</h2>
@@ -1964,13 +2160,13 @@
              });
          }, observerOptions);
 
-                                                                                                                                                                                                                                                                                                                               // Observe elements for animation
-                            document.querySelectorAll('.stat-item, .feature-card, .terminal-container, .about-section > div').forEach(el => {
-                 el.style.opacity = '0';
-                 el.style.transform = 'translateY(20px)';
-                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                 observer.observe(el);
-             });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // Observe elements for animation
+                             document.querySelectorAll('.stat-item, .feature-card, .terminal-container, .about-section > div, .faq-item').forEach(el => {
+                  el.style.opacity = '0';
+                  el.style.transform = 'translateY(20px)';
+                  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                  observer.observe(el);
+              });
 
           // Animate Launch Year (counting down from 2025 to 2018)
           const launchYearElement = document.getElementById('launch-year');
@@ -2066,20 +2262,42 @@
                });
            });
 
-           // Keyboard navigation
-           document.addEventListener('keydown', (e) => {
-               const useCasesSection = document.getElementById('use-cases');
-               const rect = useCasesSection.getBoundingClientRect();
-               const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-               
-               if (isInView) {
-                   if (e.key === 'ArrowRight') {
-                       nextSlide();
-                   } else if (e.key === 'ArrowLeft') {
-                       prevSlide();
-                   }
-               }
-           });
-      </script>
+                       // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const useCasesSection = document.getElementById('use-cases');
+                const rect = useCasesSection.getBoundingClientRect();
+                const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInView) {
+                    if (e.key === 'ArrowRight') {
+                        nextSlide();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                    }
+                }
+            });
+
+            // FAQ Accordion functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        question.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+       </script>
 </body>
 </html>
