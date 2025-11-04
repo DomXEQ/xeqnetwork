@@ -869,18 +869,65 @@
               filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.5));
           }
 
-                     /* Shine effect for Oracle and Economy icons (cards 1 and 3) */
-           .feature-card:nth-child(1):hover .feature-icon svg circle,
-           .feature-card:nth-child(3):hover .feature-icon svg circle {
-               filter: drop-shadow(0 0 8px rgba(18, 159, 202, 0.8));
-               transition: filter 0.3s ease;
-           }
+                                           /* Shine and pulse effect for Oracle and Economy icons (cards 1 and 3) */
+            .feature-card:nth-child(1):hover .feature-icon svg circle,
+            .feature-card:nth-child(3):hover .feature-icon svg circle {
+                filter: drop-shadow(0 0 8px rgba(18, 159, 202, 0.8));
+                animation: subtlePulse 2s ease-in-out infinite;
+            }
 
-           .feature-card:nth-child(1) .feature-icon svg circle,
-           .feature-card:nth-child(3) .feature-icon svg circle {
-               filter: drop-shadow(0 0 3px rgba(18, 159, 202, 0.3));
-               transition: filter 0.3s ease;
-           }
+            .feature-card:nth-child(1) .feature-icon svg circle,
+            .feature-card:nth-child(3) .feature-icon svg circle {
+                filter: drop-shadow(0 0 3px rgba(18, 159, 202, 0.3));
+                transition: filter 0.3s ease;
+            }
+
+            /* Staggered animation delays for different nodes */
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(1),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(1) {
+                animation-delay: 0s;
+            }
+
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(2),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(2) {
+                animation-delay: 0.2s;
+            }
+
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(3),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(3) {
+                animation-delay: 0.4s;
+            }
+
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(4),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(4) {
+                animation-delay: 0.6s;
+            }
+
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(5),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(5) {
+                animation-delay: 0.1s;
+            }
+
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(6),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(6) {
+                animation-delay: 0.3s;
+            }
+
+            .feature-card:nth-child(1):hover .feature-icon svg circle:nth-of-type(7),
+            .feature-card:nth-child(3):hover .feature-icon svg circle:nth-of-type(7) {
+                animation-delay: 0.5s;
+            }
+
+            @keyframes subtlePulse {
+                0%, 100% {
+                    opacity: 0.6;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.9;
+                    transform: scale(1.05);
+                }
+            }
 
            /* Pulsing animations only for blockchain card (card 2) */
            .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(1) {
