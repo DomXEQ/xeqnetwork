@@ -664,13 +664,97 @@
             line-height: 1.3;
         }
 
-        .feature-card p {
+                .feature-card p {
             font-size: 16px;
             color: #FFFFFF;
             line-height: 1.7;
         }
 
-                 /* Responsive */
+        /* Use Cases Section */
+        .use-cases-section {
+            padding: 120px 40px;
+            max-width: 90%;
+            margin: 0 auto;
+            border-top: 1px solid rgba(18, 159, 202, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-cases-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .use-cases-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .use-cases-subtitle {
+            font-size: 20px;
+            color: #FFFFFF;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .use-case-card {
+            padding: 40px 30px;
+            background-color: rgba(18, 159, 202, 0.05);
+            border: 1px solid rgba(18, 159, 202, 0.2);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(18, 159, 202, 0.5);
+            box-shadow: 0 10px 30px rgba(18, 159, 202, 0.2);
+        }
+
+        .use-case-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .use-case-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .use-case-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #129fca;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .use-case-card p {
+            font-size: 16px;
+            color: #FFFFFF;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+                   /* Responsive */
          @media (max-width: 768px) {
              .node-network {
                  width: 300px;
@@ -727,6 +811,19 @@
                  padding: 80px 20px;
              }
 
+             .use-cases-section {
+                 padding: 80px 20px;
+             }
+
+             .use-cases-title {
+                 font-size: 32px;
+             }
+
+             .use-cases-grid {
+                 grid-template-columns: 1fr;
+                 gap: 25px;
+             }
+
              .team-section {
                  padding: 80px 20px;
              }
@@ -758,6 +855,7 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#features">Features</a></li>
+              <li><a href="#use-cases">Use Cases</a></li>
               <li><a href="#stats">Stats</a></li>
               <li><a href="#team">Team</a></li>
               <li><a href="#social">Social</a></li>
@@ -850,6 +948,128 @@
                 <h3>Incentivized Node Economy</h3>
                 <p>Operators of Equilibria's oracle and data feed nodes earn XEQ through network rewards and service fees paid by dApps leveraging the platform. This model incentivizes long-term network participation and decentralization, offering meaningful returns for those who help power the Equilibria ecosystem.</p>
                          </div>
+                                  </div>
+     </section>
+
+     <!-- Use Cases Section -->
+     <section class="use-cases-section" id="use-cases">
+         <div class="use-cases-header">
+             <h2 class="use-cases-title">Use Cases</h2>
+             <p class="use-cases-subtitle">Powering the next generation of private decentralized applications</p>
+         </div>
+         <div class="use-cases-grid">
+             <div class="use-case-card">
+                 <div class="use-case-icon">
+                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                         <defs>
+                             <linearGradient id="dexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                 <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                 <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                             </linearGradient>
+                         </defs>
+                         <!-- Exchange Arrows -->
+                         <path d="M 20 40 L 60 40 L 50 30 M 60 40 L 50 50" stroke="#129fca" stroke-width="3" fill="none" stroke-linecap="round"/>
+                         <path d="M 100 40 L 60 40 L 70 30 M 60 40 L 70 50" stroke="#129fca" stroke-width="3" fill="none" stroke-linecap="round"/>
+                         <!-- Central Node -->
+                         <circle cx="60" cy="60" r="15" fill="url(#dexGradient)" opacity="0.3"/>
+                         <circle cx="60" cy="60" r="12" fill="none" stroke="#129fca" stroke-width="2"/>
+                         <!-- Exchange Nodes -->
+                         <circle cx="30" cy="40" r="8" fill="#129fca" opacity="0.6"/>
+                         <circle cx="90" cy="40" r="8" fill="#129fca" opacity="0.6"/>
+                         <!-- Vertical Flow -->
+                         <path d="M 60 75 L 60 95" stroke="#129fca" stroke-width="3" stroke-linecap="round"/>
+                         <circle cx="60" cy="100" r="6" fill="#129fca"/>
+                         <!-- Connection Lines -->
+                         <line x1="30" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                         <line x1="90" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                     </svg>
+                 </div>
+                 <h3>Decentralized Exchanges</h3>
+                 <p>Enable private trading on DEX platforms with Equilibria's private data oracle delivering real-time price feeds and market data while preserving transaction privacy and protecting user information.</p>
+             </div>
+             <div class="use-case-card">
+                 <div class="use-case-icon">
+                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                         <defs>
+                             <linearGradient id="privacyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                 <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                 <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                             </linearGradient>
+                         </defs>
+                         <!-- Shield -->
+                         <path d="M 60 25 L 75 35 L 75 55 C 75 75 60 85 60 85 C 60 85 45 75 45 55 L 45 35 Z" fill="url(#privacyGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                         <path d="M 60 35 L 68 40 L 68 55 C 68 65 60 70 60 70 C 60 70 52 65 52 55 L 52 40 Z" fill="none" stroke="#129fca" stroke-width="2"/>
+                         <!-- Nodes around shield -->
+                         <circle cx="35" cy="50" r="6" fill="#129fca" opacity="0.6"/>
+                         <circle cx="85" cy="50" r="6" fill="#129fca" opacity="0.6"/>
+                         <circle cx="60" cy="75" r="6" fill="#129fca" opacity="0.6"/>
+                         <!-- Connection lines -->
+                         <line x1="35" y1="50" x2="52" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                         <line x1="85" y1="50" x2="68" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                         <line x1="60" y1="70" x2="60" y2="75" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                     </svg>
+                 </div>
+                 <h3>Privacy-Centric Protocols</h3>
+                 <p>Build anonymous protocols and applications with Equilibria's private data oracle, ensuring sensitive information and user data remain protected while maintaining full functionality and transparency where needed.</p>
+             </div>
+             <div class="use-case-card">
+                 <div class="use-case-icon">
+                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                         <defs>
+                             <linearGradient id="defiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                 <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                 <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                             </linearGradient>
+                         </defs>
+                         <!-- Coins/Stablecoins -->
+                         <circle cx="40" cy="50" r="18" fill="url(#defiGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                         <circle cx="40" cy="50" r="14" fill="none" stroke="#129fca" stroke-width="2"/>
+                         <text x="40" y="55" font-family="Arial" font-size="12" fill="#129fca" text-anchor="middle" font-weight="bold">$</text>
+                         
+                         <circle cx="80" cy="50" r="18" fill="url(#defiGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                         <circle cx="80" cy="50" r="14" fill="none" stroke="#129fca" stroke-width="2"/>
+                         <text x="80" y="55" font-family="Arial" font-size="12" fill="#129fca" text-anchor="middle" font-weight="bold">$</text>
+                         
+                         <!-- Central Oracle Node -->
+                         <circle cx="60" cy="85" r="12" fill="#129fca" opacity="0.3"/>
+                         <circle cx="60" cy="85" r="9" fill="none" stroke="#129fca" stroke-width="2"/>
+                         <!-- Connection Lines -->
+                         <line x1="50" y1="60" x2="55" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
+                         <line x1="70" y1="60" x2="65" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
+                     </svg>
+                 </div>
+                 <h3>DeFI & Stablecoins</h3>
+                 <p>Secure DeFi applications and stablecoin protocols with reliable private data feeds from Equilibria's oracle network, providing accurate market rates and economic data without compromising user privacy.</p>
+             </div>
+             <div class="use-case-card">
+                 <div class="use-case-icon">
+                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                         <defs>
+                             <linearGradient id="devGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                 <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                 <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                             </linearGradient>
+                         </defs>
+                         <!-- Server/Database -->
+                         <rect x="40" y="30" width="40" height="50" rx="3" fill="url(#devGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                         <rect x="45" y="40" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                         <rect x="58" y="40" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                         <rect x="45" y="52" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                         <rect x="58" y="52" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                         <!-- Data Nodes -->
+                         <circle cx="30" cy="70" r="6" fill="#129fca" opacity="0.6"/>
+                         <circle cx="90" cy="70" r="6" fill="#129fca" opacity="0.6"/>
+                         <!-- Connection Lines -->
+                         <line x1="40" y1="55" x2="30" y2="70" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                         <line x1="80" y1="55" x2="90" y2="70" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                         <!-- Code Brackets -->
+                         <path d="M 20 85 L 25 90 L 20 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
+                         <path d="M 100 85 L 95 90 L 100 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
+                     </svg>
+                 </div>
+                 <h3>Dev Tools & Data Services</h3>
+                 <p>Integrate Equilibria's private data oracle into your development toolkit for secure APIs, analytics platforms, and data services that deliver real-time information while protecting both providers and consumers.</p>
+             </div>
          </div>
      </section>
 
@@ -951,8 +1171,8 @@
              });
          }, observerOptions);
 
-         // Observe elements for animation
-         document.querySelectorAll('.stat-item, .feature-card, .about-section > div').forEach(el => {
+                   // Observe elements for animation
+          document.querySelectorAll('.stat-item, .feature-card, .use-case-card, .about-section > div').forEach(el => {
              el.style.opacity = '0';
              el.style.transform = 'translateY(20px)';
              el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
