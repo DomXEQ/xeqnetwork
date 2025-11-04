@@ -240,17 +240,17 @@
             pointer-events: none;
         }
 
-        .node-network {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            opacity: 0.25;
-            z-index: 0;
-            pointer-events: none;
-        }
+                 .node-network {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             width: 800px;
+             height: 800px;
+             opacity: 0.4;
+             z-index: 0;
+             pointer-events: none;
+         }
 
         .node-container {
             position: relative;
@@ -258,28 +258,28 @@
             height: 100%;
         }
 
-        .node {
-            position: absolute;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(18, 159, 202, 0.6), rgba(18, 159, 202, 0.2));
-            border: 1.5px solid rgba(18, 159, 202, 0.4);
-            box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            animation: pulse 3s ease-in-out infinite, dataFlow 4s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+                 .node {
+             position: absolute;
+             width: 35px;
+             height: 35px;
+             border-radius: 50%;
+             background: radial-gradient(circle, rgba(18, 159, 202, 0.8), rgba(18, 159, 202, 0.3));
+             border: 1.5px solid rgba(18, 159, 202, 0.6);
+             box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
+             animation: pulse 3s ease-in-out infinite, dataFlow 4s ease-in-out infinite;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+         }
 
-        .node::after {
-            content: '';
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: rgba(18, 159, 202, 0.7);
-            box-shadow: 0 0 10px rgba(18, 159, 202, 0.5);
-        }
+         .node::after {
+             content: '';
+             width: 14px;
+             height: 14px;
+             border-radius: 50%;
+             background: rgba(18, 159, 202, 0.9);
+             box-shadow: 0 0 10px rgba(18, 159, 202, 0.7);
+         }
 
         .node-1 {
             top: 20px;
@@ -427,70 +427,70 @@
             }
         }
         
-        @keyframes dataFlow {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            }
-            25% {
-                transform: translate(-50%, -50%) scale(1.15);
-                box-shadow: 0 0 30px rgba(18, 159, 202, 0.7);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1);
-                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            }
-            75% {
-                transform: translate(-50%, -50%) scale(0.95);
-                box-shadow: 0 0 15px rgba(18, 159, 202, 0.3);
-            }
-        }
+                 @keyframes dataFlow {
+             0%, 100% {
+                 transform: translate(-50%, -50%) scale(1);
+                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
+             }
+             25% {
+                 transform: translate(-50%, -50%) scale(1.15);
+                 box-shadow: 0 0 30px rgba(18, 159, 202, 0.9);
+             }
+             50% {
+                 transform: translate(-50%, -50%) scale(1);
+                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
+             }
+             75% {
+                 transform: translate(-50%, -50%) scale(0.95);
+                 box-shadow: 0 0 15px rgba(18, 159, 202, 0.5);
+             }
+         }
         
         .node-1, .node-6, .node-15 {
             animation: pulse 3s ease-in-out infinite, dataFlowX 4s ease-in-out infinite;
         }
         
-        @keyframes dataFlowX {
-            0%, 100% {
-                transform: translateX(-50%) scale(1);
-                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            }
-            25% {
-                transform: translateX(-50%) scale(1.15);
-                box-shadow: 0 0 30px rgba(18, 159, 202, 0.7);
-            }
-            50% {
-                transform: translateX(-50%) scale(1);
-                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            }
-            75% {
-                transform: translateX(-50%) scale(0.95);
-                box-shadow: 0 0 15px rgba(18, 159, 202, 0.3);
-            }
-        }
+                 @keyframes dataFlowX {
+             0%, 100% {
+                 transform: translateX(-50%) scale(1);
+                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
+             }
+             25% {
+                 transform: translateX(-50%) scale(1.15);
+                 box-shadow: 0 0 30px rgba(18, 159, 202, 0.9);
+             }
+             50% {
+                 transform: translateX(-50%) scale(1);
+                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
+             }
+             75% {
+                 transform: translateX(-50%) scale(0.95);
+                 box-shadow: 0 0 15px rgba(18, 159, 202, 0.5);
+             }
+         }
         
         .connection-lines {
             animation: linePulse 4s ease-in-out infinite;
         }
         
-        @keyframes linePulse {
-            0%, 100% {
-                opacity: 0.25;
-                stroke-width: 1;
-            }
-            25% {
-                opacity: 0.5;
-                stroke-width: 1.5;
-            }
-            50% {
-                opacity: 0.35;
-                stroke-width: 1;
-            }
-            75% {
-                opacity: 0.45;
-                stroke-width: 1.3;
-            }
-        }
+                 @keyframes linePulse {
+             0%, 100% {
+                 opacity: 0.4;
+                 stroke-width: 1;
+             }
+             25% {
+                 opacity: 0.65;
+                 stroke-width: 1.5;
+             }
+             50% {
+                 opacity: 0.5;
+                 stroke-width: 1;
+             }
+             75% {
+                 opacity: 0.6;
+                 stroke-width: 1.3;
+             }
+         }
 
                  .hero-title {
              font-size: 72px;
@@ -1102,39 +1102,39 @@
                  <div class="node node-17"></div>
                  <div class="node node-center"></div>
                  <!-- Connection lines drawn with SVG - creating a mesh network -->
-                 <svg class="connection-lines" width="800" height="800" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;">
-                     <!-- Lines from center to outer nodes -->
-                     <line x1="400" y1="20" x2="400" y2="400" stroke="rgba(18,159,202,0.25)" stroke-width="1"/>
-                     <line x1="120" y1="200" x2="400" y2="400" stroke="rgba(18,159,202,0.25)" stroke-width="1"/>
-                     <line x1="680" y1="200" x2="400" y2="400" stroke="rgba(18,159,202,0.25)" stroke-width="1"/>
-                     <line x1="120" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.25)" stroke-width="1"/>
-                     <line x1="680" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.25)" stroke-width="1"/>
-                     <line x1="400" y1="780" x2="400" y2="400" stroke="rgba(18,159,202,0.25)" stroke-width="1"/>
-                     <!-- Lines to additional nodes -->
-                     <line x1="200" y1="120" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="600" y1="120" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="120" y1="320" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="680" y1="320" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="200" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="600" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="280" y1="680" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="520" y1="680" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="400" y1="480" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="240" y1="400" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <line x1="560" y1="400" x2="400" y2="400" stroke="rgba(18,159,202,0.2)" stroke-width="1"/>
-                     <!-- Inter-node connections for mesh network -->
-                     <line x1="200" y1="120" x2="120" y2="200" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="600" y1="120" x2="680" y2="200" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="200" y1="120" x2="600" y2="120" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="120" y1="320" x2="120" y2="200" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="680" y1="320" x2="680" y2="200" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="200" y1="600" x2="120" y2="600" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="600" y1="600" x2="680" y2="600" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="280" y1="680" x2="200" y2="600" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="520" y1="680" x2="600" y2="600" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="240" y1="400" x2="120" y2="320" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                     <line x1="560" y1="400" x2="680" y2="320" stroke="rgba(18,159,202,0.15)" stroke-width="1"/>
-                 </svg>
+                                   <svg class="connection-lines" width="800" height="800" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;">
+                      <!-- Lines from center to outer nodes -->
+                      <line x1="400" y1="20" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
+                      <line x1="120" y1="200" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
+                      <line x1="680" y1="200" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
+                      <line x1="120" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
+                      <line x1="680" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
+                      <line x1="400" y1="780" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
+                      <!-- Lines to additional nodes -->
+                      <line x1="200" y1="120" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="600" y1="120" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="120" y1="320" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="680" y1="320" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="200" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="600" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="280" y1="680" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="520" y1="680" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="400" y1="480" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="240" y1="400" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <line x1="560" y1="400" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
+                      <!-- Inter-node connections for mesh network -->
+                      <line x1="200" y1="120" x2="120" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="600" y1="120" x2="680" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="200" y1="120" x2="600" y2="120" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="120" y1="320" x2="120" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="680" y1="320" x2="680" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="200" y1="600" x2="120" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="600" y1="600" x2="680" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="280" y1="680" x2="200" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="520" y1="680" x2="600" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="240" y1="400" x2="120" y2="320" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                      <line x1="560" y1="400" x2="680" y2="320" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                  </svg>
              </div>
          </div>
         <h1 class="hero-title">The World's First Privacy Developer Platform</h1>
