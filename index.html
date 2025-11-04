@@ -250,6 +250,7 @@
             opacity: 0.25;
             z-index: 0;
             pointer-events: none;
+            animation: slowRotate 60s linear infinite;
         }
 
         .node-container {
@@ -266,7 +267,7 @@
             background: radial-gradient(circle, rgba(18, 159, 202, 0.6), rgba(18, 159, 202, 0.2));
             border: 1.5px solid rgba(18, 159, 202, 0.4);
             box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            animation: pulse 3s ease-in-out infinite;
+            animation: pulse 3s ease-in-out infinite, float 6s ease-in-out infinite;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -418,13 +419,53 @@
             transform: translate(-50%, -50%);
         }
         
-        .node-1, .node-6, .node-15 {
-            transform: translateX(-50%);
-        }
-
         @keyframes flow {
             0%, 100% {
                 opacity: 0.2;
+            }
+            50% {
+                opacity: 0.4;
+            }
+        }
+        
+        @keyframes slowRotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-8px);
+            }
+        }
+        
+        .node-1, .node-6, .node-15 {
+            animation: pulse 3s ease-in-out infinite, floatX 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatX {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+        
+        .connection-lines {
+            animation: linePulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes linePulse {
+            0%, 100% {
+                opacity: 0.25;
             }
             50% {
                 opacity: 0.4;
