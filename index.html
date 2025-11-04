@@ -859,111 +859,148 @@
              height: 100%;
          }
 
-         /* Feature Icon Animations */
-         .feature-icon {
-             animation: floatIcon 6s ease-in-out infinite;
-         }
+                   /* Feature Icon Animations - Only on hover */
+          .feature-icon svg {
+              filter: drop-shadow(0 0 10px rgba(18, 159, 202, 0.3));
+              transition: filter 0.3s ease;
+          }
 
-         .feature-icon svg {
-             filter: drop-shadow(0 0 10px rgba(18, 159, 202, 0.3));
-             transition: filter 0.3s ease;
-         }
+          .feature-card:hover .feature-icon svg {
+              filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.5));
+          }
 
-         .feature-card:hover .feature-icon svg {
-             filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.5));
-         }
+          /* Pulsing animations only on card hover */
+          .feature-card:hover .feature-icon svg circle:nth-of-type(1) {
+              animation: iconPulse 1.5s ease-in-out infinite;
+          }
 
-         .feature-icon svg circle[fill="#129fca"],
-         .feature-icon svg circle[fill="url(#oracleGradient)"],
-         .feature-icon svg circle[fill="url(#blockchainGradient)"],
-         .feature-icon svg circle[fill="url(#economyGradient)"] {
-             animation: iconPulse 3s ease-in-out infinite;
-         }
+          .feature-card:hover .feature-icon svg circle:nth-of-type(2) {
+              animation: iconPulse 1.5s ease-in-out infinite 0.2s;
+          }
 
-         .feature-icon svg circle[opacity="0.6"],
-         .feature-icon svg circle[opacity="0.7"],
-         .feature-icon svg circle[opacity="0.8"] {
-             animation: iconPulse 3s ease-in-out infinite 0.5s;
-         }
+          .feature-card:hover .feature-icon svg circle:nth-of-type(3) {
+              animation: iconPulse 1.5s ease-in-out infinite 0.4s;
+          }
 
-         .feature-icon svg line {
-             animation: lineFade 2.5s ease-in-out infinite;
-         }
+          .feature-card:hover .feature-icon svg circle:nth-of-type(4) {
+              animation: iconPulse 1.5s ease-in-out infinite 0.1s;
+          }
 
-         .feature-icon svg path[stroke="#129fca"],
-         .feature-icon svg path[fill="none"] {
-             animation: pathPulse 4s ease-in-out infinite;
-         }
+          .feature-card:hover .feature-icon svg circle:nth-of-type(5) {
+              animation: iconPulse 1.5s ease-in-out infinite 0.3s;
+          }
 
-         .feature-icon svg rect {
-             animation: blockPulse 3.5s ease-in-out infinite;
-         }
+          .feature-card:hover .feature-icon svg circle:nth-of-type(6) {
+              animation: iconPulse 1.5s ease-in-out infinite 0.5s;
+          }
 
-         .feature-icon svg text {
-             animation: textPulse 3s ease-in-out infinite;
-         }
+          .feature-card:hover .feature-icon svg circle:nth-of-type(7) {
+              animation: iconPulse 1.5s ease-in-out infinite 0.15s;
+          }
 
-         @keyframes floatIcon {
-             0%, 100% {
-                 transform: translateY(0);
-             }
-             50% {
-                 transform: translateY(-5px);
-             }
-         }
+          .feature-card:hover .feature-icon svg line:nth-of-type(1) {
+              animation: linePulse 1.8s ease-in-out infinite;
+          }
 
-         @keyframes iconPulse {
-             0%, 100% {
-                 opacity: 1;
-                 transform: scale(1);
-             }
-             50% {
-                 opacity: 0.85;
-                 transform: scale(1.08);
-             }
-         }
+          .feature-card:hover .feature-icon svg line:nth-of-type(2) {
+              animation: linePulse 1.8s ease-in-out infinite 0.3s;
+          }
 
-         @keyframes lineFade {
-             0%, 100% {
-                 opacity: 0.4;
-                 stroke-width: 1.5;
-             }
-             50% {
-                 opacity: 0.65;
-                 stroke-width: 2;
-             }
-         }
+          .feature-card:hover .feature-icon svg line:nth-of-type(3) {
+              animation: linePulse 1.8s ease-in-out infinite 0.6s;
+          }
 
-         @keyframes pathPulse {
-             0%, 100% {
-                 opacity: 1;
-                 stroke-width: 2;
-             }
-             50% {
-                 opacity: 0.75;
-                 stroke-width: 2.5;
-             }
-         }
+          .feature-card:hover .feature-icon svg line:nth-of-type(4) {
+              animation: linePulse 1.8s ease-in-out infinite 0.2s;
+          }
 
-         @keyframes blockPulse {
-             0%, 100% {
-                 opacity: 0.3;
-                 transform: translateY(0) scale(1);
-             }
-             50% {
-                 opacity: 0.5;
-                 transform: translateY(-2px) scale(1.02);
-             }
-         }
+          .feature-card:hover .feature-icon svg line:nth-of-type(5) {
+              animation: linePulse 1.8s ease-in-out infinite 0.4s;
+          }
 
-         @keyframes textPulse {
-             0%, 100% {
-                 opacity: 1;
-             }
-             50% {
-                 opacity: 0.8;
-             }
-         }
+          .feature-card:hover .feature-icon svg line:nth-of-type(6) {
+              animation: linePulse 1.8s ease-in-out infinite 0.5s;
+          }
+
+          .feature-card:hover .feature-icon svg path:nth-of-type(1) {
+              animation: pathPulse 2s ease-in-out infinite;
+          }
+
+          .feature-card:hover .feature-icon svg path:nth-of-type(2) {
+              animation: pathPulse 2s ease-in-out infinite 0.4s;
+          }
+
+          .feature-card:hover .feature-icon svg rect:nth-of-type(1) {
+              animation: blockPulse 1.6s ease-in-out infinite;
+          }
+
+          .feature-card:hover .feature-icon svg rect:nth-of-type(2) {
+              animation: blockPulse 1.6s ease-in-out infinite 0.25s;
+          }
+
+          .feature-card:hover .feature-icon svg rect:nth-of-type(3) {
+              animation: blockPulse 1.6s ease-in-out infinite 0.5s;
+          }
+
+          .feature-card:hover .feature-icon svg rect:nth-of-type(4) {
+              animation: blockPulse 1.6s ease-in-out infinite 0.15s;
+          }
+
+          .feature-card:hover .feature-icon svg rect:nth-of-type(5) {
+              animation: blockPulse 1.6s ease-in-out infinite 0.35s;
+          }
+
+          .feature-card:hover .feature-icon svg rect:nth-of-type(6) {
+              animation: blockPulse 1.6s ease-in-out infinite 0.55s;
+          }
+
+          @keyframes iconPulse {
+              0%, 100% {
+                  opacity: 1;
+                  transform: scale(1);
+                  filter: drop-shadow(0 0 5px rgba(18, 159, 202, 0.5));
+              }
+              50% {
+                  opacity: 0.9;
+                  transform: scale(1.15);
+                  filter: drop-shadow(0 0 15px rgba(18, 159, 202, 0.8));
+              }
+          }
+
+          @keyframes linePulse {
+              0%, 100% {
+                  opacity: 0.4;
+                  stroke-width: 1.5;
+              }
+              50% {
+                  opacity: 0.8;
+                  stroke-width: 2.5;
+              }
+          }
+
+          @keyframes pathPulse {
+              0%, 100% {
+                  opacity: 1;
+                  stroke-width: 2;
+              }
+              50% {
+                  opacity: 0.7;
+                  stroke-width: 3;
+                  filter: drop-shadow(0 0 8px rgba(18, 159, 202, 0.6));
+              }
+          }
+
+          @keyframes blockPulse {
+              0%, 100% {
+                  opacity: 0.3;
+                  transform: scale(1);
+              }
+              50% {
+                  opacity: 0.6;
+                  transform: scale(1.05);
+                  filter: drop-shadow(0 0 10px rgba(18, 159, 202, 0.5));
+              }
+          }
 
          .feature-card h3 {
             font-size: 24px;
