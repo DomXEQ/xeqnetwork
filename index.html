@@ -624,13 +624,14 @@
          .team-member {
              flex: 1;
              min-width: 300px;
-             max-width: 500px;
+             max-width: 400px;
              padding: 40px 30px;
              background-color: rgba(18, 159, 202, 0.05);
              border: 1px solid rgba(18, 159, 202, 0.2);
              border-radius: 12px;
              text-align: center;
              transition: transform 0.3s ease, box-shadow 0.3s ease;
+             overflow: visible;
          }
 
          .team-member:hover {
@@ -643,6 +644,7 @@
              height: 150px;
              object-fit: cover;
              margin-bottom: 20px;
+             max-width: 100%;
          }
 
          .team-member h3 {
@@ -650,6 +652,8 @@
              font-weight: 600;
              color: #129fca;
              margin-bottom: 10px;
+             word-wrap: break-word;
+             overflow-wrap: break-word;
          }
 
          .team-member .team-role {
