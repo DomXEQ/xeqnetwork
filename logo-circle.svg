@@ -1,8 +1,0 @@
-<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-    <!-- Black circular background -->
-    <circle cx="20" cy="20" r="20" fill="#000000"/>
-    <!-- White top chevron pointing right - flat left edge, pointed right tip -->
-    <path d="M 8 10 L 20 10 L 28 20 L 20 30 L 8 30 Z" fill="#FFFFFF" stroke-linejoin="round" stroke-linecap="round"/>
-    <!-- Blue bottom chevron pointing left - flat right edge, pointed left tip -->
-    <path d="M 32 30 L 20 30 L 12 20 L 20 10 L 32 10 Z" fill="#129fca" stroke-linejoin="round" stroke-linecap="round"/>
-</svg>
