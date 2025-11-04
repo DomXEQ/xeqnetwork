@@ -1,0 +1,37 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor/IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Optional: If you want to exclude the Elementor JSON file
+# xeq-network-page.json
+
+# Node modules (if you add any JavaScript packages later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs (if you add a build process later)
+dist/
+build/
