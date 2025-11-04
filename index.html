@@ -655,87 +655,325 @@
              z-index: 1;
          }
 
-         /* Team Section */
-         .team-section {
-             padding: 120px 40px;
-             max-width: 90%;
-             margin: 0 auto;
-             border-top: 1px solid rgba(18, 159, 202, 0.2);
-             position: relative;
-             z-index: 1;
-         }
+                    /* Team Section */
+          .team-section {
+              padding: 120px 40px;
+              max-width: 90%;
+              margin: 0 auto;
+              border-top: 1px solid rgba(18, 159, 202, 0.2);
+              position: relative;
+              z-index: 1;
+          }
 
-         .team-header {
-             text-align: center;
-             margin-bottom: 80px;
-         }
+          .team-header {
+              text-align: center;
+              margin-bottom: 100px;
+          }
 
-         .team-title {
-             font-size: 48px;
-             font-weight: 700;
-             color: #FFFFFF;
-             margin-bottom: 20px;
-             line-height: 1.2;
-         }
-
-         .team-grid {
-             display: flex;
-             gap: 40px;
-             justify-content: center;
-             flex-wrap: wrap;
-         }
-
-         .team-member {
-             flex: 1;
-             min-width: 300px;
-             max-width: 400px;
-             padding: 40px 30px;
-             background-color: rgba(18, 159, 202, 0.05);
-             border: 1px solid rgba(18, 159, 202, 0.2);
-             border-radius: 12px;
-             text-align: center;
-             transition: transform 0.3s ease, box-shadow 0.3s ease;
-             overflow: visible;
-         }
-
-         .team-member:hover {
-             transform: translateY(-10px);
-             box-shadow: 0 10px 40px rgba(18, 159, 202, 0.3);
-         }
-
-         .team-member img,
-         .team-member svg {
-             width: 150px;
-             height: 150px;
-             margin-bottom: 20px;
-         }
-         
-         .team-member svg {
-             display: block;
-             margin: 0 auto;
-         }
-
-         .team-member h3 {
-             font-size: 22px;
-             font-weight: 600;
-             color: #129fca;
-             margin-bottom: 10px;
-             word-wrap: break-word;
-             overflow-wrap: break-word;
-         }
-
-         .team-member .team-role {
-             font-size: 16px;
-             color: #FFFFFF;
-             margin-bottom: 15px;
-             font-weight: 500;
-         }
-
-                   .team-member p {
-              font-size: 15px;
+          .team-title {
+              font-size: 48px;
+              font-weight: 700;
               color: #FFFFFF;
+              margin-bottom: 20px;
+              line-height: 1.2;
+          }
+
+                      /* Team Members Container */
+            .team-members {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* Individual Team Member - Alternating Layout */
+            .team-member-row {
+                display: flex;
+                align-items: center;
+                gap: 60px;
+                margin-bottom: 100px;
+                padding: 40px 0;
+                position: relative;
+            }
+
+            .team-member-row:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Alternate layout direction */
+            .team-member-row.reverse {
+                flex-direction: row-reverse;
+            }
+
+            /* Team Member Image/Icon Container */
+            .team-member-visual {
+                flex: 0 0 400px;
+                max-width: 100%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .team-member-icon {
+                width: 300px;
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: radial-gradient(circle, rgba(18, 159, 202, 0.15), rgba(18, 159, 202, 0.05));
+                border-radius: 50%;
+                border: 2px solid rgba(18, 159, 202, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .team-member-icon svg {
+                width: 220px;
+                height: 220px;
+            }
+
+            .team-member-row:hover .team-member-icon {
+                border-color: rgba(18, 159, 202, 0.6);
+                box-shadow: 0 0 40px rgba(18, 159, 202, 0.3);
+                transform: scale(1.05);
+            }
+
+            /* Team Member Content */
+            .team-member-info {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .team-member-info h3 {
+                font-size: 32px;
+                font-weight: 700;
+                color: #129fca;
+                margin-bottom: 12px;
+                line-height: 1.2;
+            }
+
+            .team-member-info .team-role {
+                font-size: 20px;
+                color: #FFFFFF;
+                opacity: 0.9;
+                margin-bottom: 25px;
+                font-weight: 500;
+            }
+
+            .team-member-info p {
+                font-size: 17px;
+                color: #FFFFFF;
+                line-height: 1.8;
+                opacity: 0.85;
+            }
+
+            /* Subtle Divider Between Team Members */
+            .team-member-row::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 10%;
+                right: 10%;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(18, 159, 202, 0.3), transparent);
+            }
+
+            .team-member-row:last-child::after {
+                display: none;
+            }
+
+            /* OLD TEAM NETWORK STYLES - TO BE REMOVED */
+            .team-network {
+                position: relative;
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                height: 700px;
+              min-height: 700px;
+          }
+
+          /* Connection Lines SVG */
+          .team-connections {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+              pointer-events: none;
+          }
+
+          .team-connections line {
+              stroke: rgba(18, 159, 202, 0.3);
+              stroke-width: 2;
+              animation: linePulse 3s ease-in-out infinite;
+          }
+
+          @keyframes linePulse {
+              0%, 100% {
+                  opacity: 0.3;
+                  stroke-width: 2;
+              }
+              50% {
+                  opacity: 0.6;
+                  stroke-width: 2.5;
+              }
+          }
+
+          /* Team Node */
+          .team-node {
+              position: absolute;
+              width: 280px;
+              text-align: center;
+              cursor: pointer;
+              z-index: 2;
+              transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .team-node.node-1 {
+              top: 15%;
+              left: 50%;
+              transform: translateX(-50%);
+          }
+
+          .team-node.node-2 {
+              top: 50%;
+              left: 15%;
+              transform: translateY(-50%);
+          }
+
+          .team-node.node-3 {
+              top: 50%;
+              right: 15%;
+              transform: translateY(-50%);
+          }
+
+          /* Node Core - The Glowing Circle */
+          .node-core {
+              width: 120px;
+              height: 120px;
+              margin: 0 auto 20px;
+              background: radial-gradient(circle, rgba(18, 159, 202, 0.8), rgba(18, 159, 202, 0.3));
+              border: 3px solid rgba(18, 159, 202, 0.6);
+              border-radius: 50%;
+              position: relative;
+              transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+              animation: nodePulse 3s ease-in-out infinite;
+              box-shadow: 0 0 30px rgba(18, 159, 202, 0.4);
+          }
+
+          .node-core::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 80px;
+              height: 80px;
+              background: rgba(18, 159, 202, 0.5);
+              border-radius: 50%;
+              z-index: -1;
+          }
+
+          .node-core svg {
+              width: 80px;
+              height: 80px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              filter: drop-shadow(0 0 10px rgba(18, 159, 202, 0.8));
+          }
+
+          @keyframes nodePulse {
+              0%, 100% {
+                  transform: scale(1);
+                  box-shadow: 0 0 30px rgba(18, 159, 202, 0.4);
+              }
+              50% {
+                  transform: scale(1.05);
+                  box-shadow: 0 0 50px rgba(18, 159, 202, 0.7);
+              }
+          }
+
+          /* Node Content - Name and Role (always visible) */
+          .node-content {
+              transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .node-content h3 {
+              font-size: 20px;
+              font-weight: 600;
+              color: #129fca;
+              margin-bottom: 8px;
+              transition: all 0.5s ease;
+              word-wrap: break-word;
+              overflow-wrap: break-word;
+          }
+
+          .node-content .team-role {
+              font-size: 14px;
+              color: rgba(255, 255, 255, 0.8);
+              font-weight: 500;
+              transition: all 0.5s ease;
+          }
+
+          /* Node Details - Bio (hidden by default, shown on hover) */
+          .node-details {
+              max-height: 0;
+              overflow: hidden;
+              opacity: 0;
+              transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+              margin-top: 0;
+          }
+
+          .node-details p {
+              font-size: 14px;
+              color: rgba(255, 255, 255, 0.9);
               line-height: 1.6;
-              opacity: 0.9;
+              padding: 0 10px;
+          }
+
+          /* Hover State - Expanded Node */
+          .team-node:hover .node-core {
+              width: 160px;
+              height: 160px;
+              box-shadow: 0 0 60px rgba(18, 159, 202, 0.8);
+              animation: nodePulseHover 2s ease-in-out infinite;
+          }
+
+          .team-node:hover .node-core svg {
+              width: 110px;
+              height: 110px;
+          }
+
+          @keyframes nodePulseHover {
+              0%, 100% {
+                  transform: scale(1);
+                  box-shadow: 0 0 60px rgba(18, 159, 202, 0.8);
+              }
+              50% {
+                  transform: scale(1.08);
+                  box-shadow: 0 0 80px rgba(18, 159, 202, 1);
+              }
+          }
+
+          .team-node:hover .node-content h3 {
+              font-size: 24px;
+              color: #ffffff;
+          }
+
+          .team-node:hover .node-content .team-role {
+              font-size: 16px;
+              color: #129fca;
+          }
+
+          .team-node:hover .node-details {
+              max-height: 300px;
+              opacity: 1;
+              margin-top: 25px;
+          }
+
+          .team-node:hover {
+              z-index: 10;
           }
 
           /* FAQ Section */
@@ -1439,16 +1677,52 @@
                      padding: 0 10px;
                  }
 
-             .team-section {
-                 padding: 80px 20px;
-             }
+                           .team-section {
+                  padding: 80px 20px;
+              }
 
-             .team-title {
-                 font-size: 32px;
-             }
+              .team-title {
+                  font-size: 32px;
+              }
 
-                           .team-member {
+              .team-member-row {
+                  flex-direction: column !important;
+                  gap: 40px;
+                  margin-bottom: 80px;
+                  padding: 30px 0;
+              }
+
+              .team-member-visual {
+                  flex: 1;
+                  max-width: 100%;
+              }
+
+              .team-member-icon {
+                  width: 250px;
+                  height: 250px;
+                  margin: 0 auto;
+              }
+
+              .team-member-icon svg {
+                  width: 180px;
+                  height: 180px;
+              }
+
+              .team-member-info {
+                  text-align: center;
                   min-width: 100%;
+              }
+
+              .team-member-info h3 {
+                  font-size: 26px;
+              }
+
+              .team-member-info .team-role {
+                  font-size: 18px;
+              }
+
+              .team-member-info p {
+                  font-size: 16px;
               }
 
               .faq-section {
@@ -1915,106 +2189,121 @@
             </div>
         </section>
 
-     <!-- Team Section -->
-     <section class="team-section" id="team">
-         <div class="team-header">
-             <h2 class="team-title">Our Team</h2>
+            <!-- Team Section -->
+      <section class="team-section" id="team">
+           <div class="team-header">
+               <h2 class="team-title">Our Team</h2>
+           </div>
+           <div class="team-members">
+
+                            <!-- Team Member 1: Spencer Shearer, Wayland (Image Left, Content Right) -->
+               <div class="team-member-row">
+                   <div class="team-member-visual">
+                       <div class="team-member-icon">
+                           <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                               <defs>
+                                   <linearGradient id="waylandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                       <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                       <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                                   </linearGradient>
+                               </defs>
+                               <!-- Person Silhouette -->
+                               <circle cx="75" cy="50" r="18" fill="#129fca" opacity="0.9"/>
+                               <path d="M 75 68 L 50 110 L 100 110 Z" fill="#129fca" opacity="0.9"/>
+                               <!-- Tech Elements - Code Brackets -->
+                               <path d="M 30 45 L 25 50 L 30 55 M 30 50 L 25 50" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
+                               <path d="M 120 45 L 125 50 L 120 55 M 120 50 L 125 50" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
+                               <!-- Network Nodes -->
+                               <circle cx="40" cy="30" r="5" fill="#129fca" opacity="0.7"/>
+                               <circle cx="110" cy="30" r="5" fill="#129fca" opacity="0.7"/>
+                               <circle cx="30" cy="120" r="5" fill="#129fca" opacity="0.7"/>
+                               <circle cx="120" cy="120" r="5" fill="#129fca" opacity="0.7"/>
+                               <!-- Connection Lines -->
+                               <line x1="40" y1="30" x2="75" y2="50" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                               <line x1="110" y1="30" x2="75" y2="50" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                           </svg>
+                       </div>
+                   </div>
+                   <div class="team-member-info">
+                       <h3>Spencer Shearer, Wayland</h3>
+                       <div class="team-role">Chief Decentralization Officer</div>
+                       <p>Leading the development of XEQ Network, a developer-focused privacy platform designed to support applications prioritizing confidentiality and security. With a strong background in strategic vision, cross-team collaboration, and ecosystem growth, I focus on enabling builders to create privacy-enhancing solutions.</p>
+                   </div>
+               </div>
+
+               <!-- Team Member 2: Frazer Mackenzie (Image Right, Content Left - Reversed) -->
+               <div class="team-member-row reverse">
+                   <div class="team-member-visual">
+                       <div class="team-member-icon">
+                           <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                               <defs>
+                                   <linearGradient id="fraserGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                       <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                       <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                                   </linearGradient>
+                               </defs>
+                               <!-- Person Silhouette -->
+                               <circle cx="75" cy="50" r="18" fill="#129fca" opacity="0.9"/>
+                               <path d="M 75 68 L 50 110 L 100 110 Z" fill="#129fca" opacity="0.9"/>
+                               <!-- Tech Elements - Architecture Blocks -->
+                               <rect x="25" y="40" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.7"/>
+                               <rect x="110" y="40" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.7"/>
+                               <rect x="25" y="95" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.7"/>
+                               <rect x="110" y="95" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.7"/>
+                               <!-- Connection Lines to Blocks -->
+                               <line x1="32.5" y1="47.5" x2="57" y2="68" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                               <line x1="117.5" y1="47.5" x2="93" y2="68" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                               <line x1="32.5" y1="102.5" x2="57" y2="110" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                               <line x1="117.5" y1="102.5" x2="93" y2="110" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                           </svg>
+                       </div>
+                   </div>
+                   <div class="team-member-info">
+                       <h3>Frazer Mackenzie</h3>
+                       <div class="team-role">Chief Solutions Architect</div>
+                       <p>Bringing over 30 years of experience in software engineering, specializing in data intelligence, cloud infrastructure, distributed systems, security, and encryption. I focus on designing and optimizing the platform's privacy-first architecture, ensuring developers have the tools to build secure, scalable, and efficient applications.</p>
+                   </div>
+               </div>
+
+               <!-- Team Member 3: CRC Community (Image Left, Content Right) -->
+               <div class="team-member-row">
+                   <div class="team-member-visual">
+                       <div class="team-member-icon">
+                        <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                         <defs>
+                             <linearGradient id="crcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                 <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                 <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                             </linearGradient>
+                         </defs>
+                         <!-- Group of People - Left Person -->
+                         <circle cx="50" cy="50" r="12" fill="#129fca" opacity="0.9"/>
+                         <path d="M 50 62 L 40 95 L 60 95 Z" fill="#129fca" opacity="0.9"/>
+                         <!-- Center Person -->
+                         <circle cx="75" cy="50" r="14" fill="#129fca" opacity="0.9"/>
+                         <path d="M 75 64 L 63 105 L 87 105 Z" fill="#129fca" opacity="0.9"/>
+                         <!-- Right Person -->
+                         <circle cx="100" cy="50" r="12" fill="#129fca" opacity="0.9"/>
+                         <path d="M 100 62 L 90 95 L 110 95 Z" fill="#129fca" opacity="0.9"/>
+                         <!-- Connection Lines Between People -->
+                         <line x1="62" y1="50" x2="63" y2="50" stroke="rgba(18,159,202,0.5)" stroke-width="2"/>
+                         <line x1="87" y1="50" x2="88" y2="50" stroke="rgba(18,159,202,0.5)" stroke-width="2"/>
+                         <!-- Community Nodes -->
+                         <circle cx="35" cy="75" r="4" fill="#129fca" opacity="0.7"/>
+                         <circle cx="115" cy="75" r="4" fill="#129fca" opacity="0.7"/>
+                         <circle cx="50" cy="110" r="4" fill="#129fca" opacity="0.7"/>
+                         <circle cx="100" cy="110" r="4" fill="#129fca" opacity="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="team-member-info">
+                    <h3>CRC Community</h3>
+                    <div class="team-role">Community Representatives</div>
+                    <p>The CRC is a community group that supports the Equilibria ecosystem by facilitating communication, assisting with governance, and providing feedback on the project's direction. CRC members act as liaisons between the core team and the community, ensuring transparency, collaboration, and decentralized decision-making.</p>
+                </div>
+            </div>
          </div>
-         <div class="team-grid">
-             <div class="team-member">
-                 <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-                     <defs>
-                         <linearGradient id="waylandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                             <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                             <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                         </linearGradient>
-                     </defs>
-                     <!-- Background Circle -->
-                     <circle cx="75" cy="75" r="70" fill="url(#waylandGradient)" opacity="0.2"/>
-                     <circle cx="75" cy="75" r="65" fill="none" stroke="#129fca" stroke-width="2" opacity="0.3"/>
-                     <!-- Person Silhouette -->
-                     <circle cx="75" cy="50" r="18" fill="#129fca" opacity="0.8"/>
-                     <path d="M 75 68 L 50 110 L 100 110 Z" fill="#129fca" opacity="0.8"/>
-                     <!-- Tech Elements - Code Brackets -->
-                     <path d="M 30 45 L 25 50 L 30 55 M 30 50 L 25 50" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
-                     <path d="M 120 45 L 125 50 L 120 55 M 120 50 L 125 50" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
-                     <!-- Network Nodes -->
-                     <circle cx="40" cy="30" r="5" fill="#129fca" opacity="0.6"/>
-                     <circle cx="110" cy="30" r="5" fill="#129fca" opacity="0.6"/>
-                     <circle cx="30" cy="120" r="5" fill="#129fca" opacity="0.6"/>
-                     <circle cx="120" cy="120" r="5" fill="#129fca" opacity="0.6"/>
-                     <!-- Connection Lines -->
-                     <line x1="40" y1="30" x2="75" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                     <line x1="110" y1="30" x2="75" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                 </svg>
-                 <h3>Spencer Shearer, Wayland</h3>
-                 <div class="team-role">Chief Decentralization Officer</div>
-                 <p>Leading the development of XEQ Network, a developer-focused privacy platform designed to support applications prioritizing confidentiality and security. With a strong background in strategic vision, cross-team collaboration, and ecosystem growth, I focus on enabling builders to create privacy-enhancing solutions.</p>
-             </div>
-             <div class="team-member">
-                 <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-                     <defs>
-                         <linearGradient id="fraserGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                             <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                             <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                         </linearGradient>
-                     </defs>
-                     <!-- Background Circle -->
-                     <circle cx="75" cy="75" r="70" fill="url(#fraserGradient)" opacity="0.2"/>
-                     <circle cx="75" cy="75" r="65" fill="none" stroke="#129fca" stroke-width="2" opacity="0.3"/>
-                     <!-- Person Silhouette -->
-                     <circle cx="75" cy="50" r="18" fill="#129fca" opacity="0.8"/>
-                     <path d="M 75 68 L 50 110 L 100 110 Z" fill="#129fca" opacity="0.8"/>
-                     <!-- Tech Elements - Architecture Blocks -->
-                     <rect x="25" y="40" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.6"/>
-                     <rect x="110" y="40" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.6"/>
-                     <rect x="25" y="95" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.6"/>
-                     <rect x="110" y="95" width="15" height="15" rx="2" fill="none" stroke="#129fca" stroke-width="2" opacity="0.6"/>
-                     <!-- Connection Lines to Blocks -->
-                     <line x1="32.5" y1="47.5" x2="57" y2="68" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                     <line x1="117.5" y1="47.5" x2="93" y2="68" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                     <line x1="32.5" y1="102.5" x2="57" y2="110" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                     <line x1="117.5" y1="102.5" x2="93" y2="110" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                 </svg>
-                 <h3>Frazer Mackenzie</h3>
-                 <div class="team-role">Chief Solutions Architect</div>
-                 <p>Bringing over 30 years of experience in software engineering, specializing in data intelligence, cloud infrastructure, distributed systems, security, and encryption. I focus on designing and optimizing the platform's privacy-first architecture, ensuring developers have the tools to build secure, scalable, and efficient applications.</p>
-             </div>
-             <div class="team-member">
-                 <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-                     <defs>
-                         <linearGradient id="crcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                             <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                             <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                         </linearGradient>
-                     </defs>
-                     <!-- Background Circle -->
-                     <circle cx="75" cy="75" r="70" fill="url(#crcGradient)" opacity="0.2"/>
-                     <circle cx="75" cy="75" r="65" fill="none" stroke="#129fca" stroke-width="2" opacity="0.3"/>
-                     <!-- Group of People - Left Person -->
-                     <circle cx="50" cy="50" r="12" fill="#129fca" opacity="0.8"/>
-                     <path d="M 50 62 L 40 95 L 60 95 Z" fill="#129fca" opacity="0.8"/>
-                     <!-- Center Person -->
-                     <circle cx="75" cy="50" r="14" fill="#129fca" opacity="0.8"/>
-                     <path d="M 75 64 L 63 105 L 87 105 Z" fill="#129fca" opacity="0.8"/>
-                     <!-- Right Person -->
-                     <circle cx="100" cy="50" r="12" fill="#129fca" opacity="0.8"/>
-                     <path d="M 100 62 L 90 95 L 110 95 Z" fill="#129fca" opacity="0.8"/>
-                     <!-- Connection Lines Between People -->
-                     <line x1="62" y1="50" x2="63" y2="50" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
-                     <line x1="87" y1="50" x2="88" y2="50" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
-                     <!-- Community Nodes -->
-                     <circle cx="35" cy="75" r="4" fill="#129fca" opacity="0.6"/>
-                     <circle cx="115" cy="75" r="4" fill="#129fca" opacity="0.6"/>
-                     <circle cx="50" cy="110" r="4" fill="#129fca" opacity="0.6"/>
-                     <circle cx="100" cy="110" r="4" fill="#129fca" opacity="0.6"/>
-                 </svg>
-                 <h3>CRC Community</h3>
-                 <div class="team-role">Community Representatives</div>
-                 <p>The CRC is a community group that supports the Equilibria ecosystem by facilitating communication, assisting with governance, and providing feedback on the project's direction. CRC members act as liaisons between the core team and the community, ensuring transparency, collaboration, and decentralized decision-making.</p>
-             </div>
-         </div>
-           </section>
+     </section>
 
       <!-- FAQ Section -->
       <section class="faq-section" id="faq">
@@ -2160,8 +2449,8 @@
              });
          }, observerOptions);
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               // Observe elements for animation
-                             document.querySelectorAll('.stat-item, .feature-card, .terminal-container, .about-section > div, .faq-item').forEach(el => {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             // Observe elements for animation
+                                                             document.querySelectorAll('.stat-item, .feature-card, .terminal-container, .about-section > div, .faq-item, .team-member-row').forEach(el => {
                   el.style.opacity = '0';
                   el.style.transform = 'translateY(20px)';
                   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
