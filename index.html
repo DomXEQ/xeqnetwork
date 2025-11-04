@@ -250,7 +250,6 @@
             opacity: 0.25;
             z-index: 0;
             pointer-events: none;
-            animation: slowRotate 60s linear infinite;
         }
 
         .node-container {
@@ -267,7 +266,7 @@
             background: radial-gradient(circle, rgba(18, 159, 202, 0.6), rgba(18, 159, 202, 0.2));
             border: 1.5px solid rgba(18, 159, 202, 0.4);
             box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
-            animation: pulse 3s ease-in-out infinite, float 6s ease-in-out infinite;
+            animation: pulse 3s ease-in-out infinite, dataFlow 4s ease-in-out infinite;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -428,34 +427,45 @@
             }
         }
         
-        @keyframes slowRotate {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-        
-        @keyframes float {
+        @keyframes dataFlow {
             0%, 100% {
-                transform: translate(-50%, -50%) translateY(0px);
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
+            }
+            25% {
+                transform: translate(-50%, -50%) scale(1.15);
+                box-shadow: 0 0 30px rgba(18, 159, 202, 0.7);
             }
             50% {
-                transform: translate(-50%, -50%) translateY(-8px);
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
+            }
+            75% {
+                transform: translate(-50%, -50%) scale(0.95);
+                box-shadow: 0 0 15px rgba(18, 159, 202, 0.3);
             }
         }
         
         .node-1, .node-6, .node-15 {
-            animation: pulse 3s ease-in-out infinite, floatX 6s ease-in-out infinite;
+            animation: pulse 3s ease-in-out infinite, dataFlowX 4s ease-in-out infinite;
         }
         
-        @keyframes floatX {
+        @keyframes dataFlowX {
             0%, 100% {
-                transform: translateX(-50%) translateY(0px);
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
+            }
+            25% {
+                transform: translateX(-50%) scale(1.15);
+                box-shadow: 0 0 30px rgba(18, 159, 202, 0.7);
             }
             50% {
-                transform: translateX(-50%) translateY(-8px);
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 20px rgba(18, 159, 202, 0.4);
+            }
+            75% {
+                transform: translateX(-50%) scale(0.95);
+                box-shadow: 0 0 15px rgba(18, 159, 202, 0.3);
             }
         }
         
@@ -466,9 +476,19 @@
         @keyframes linePulse {
             0%, 100% {
                 opacity: 0.25;
+                stroke-width: 1;
+            }
+            25% {
+                opacity: 0.5;
+                stroke-width: 1.5;
             }
             50% {
-                opacity: 0.4;
+                opacity: 0.35;
+                stroke-width: 1;
+            }
+            75% {
+                opacity: 0.45;
+                stroke-width: 1.3;
             }
         }
 
