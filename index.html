@@ -869,90 +869,43 @@
               filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.5));
           }
 
-          /* Pulsing animations only on card hover */
-          .feature-card:hover .feature-icon svg circle:nth-of-type(1) {
-              animation: iconPulse 1.5s ease-in-out infinite;
-          }
+                     /* Shine effect for Oracle and Economy icons (cards 1 and 3) */
+           .feature-card:nth-child(1):hover .feature-icon svg circle,
+           .feature-card:nth-child(3):hover .feature-icon svg circle {
+               filter: drop-shadow(0 0 8px rgba(18, 159, 202, 0.8));
+               transition: filter 0.3s ease;
+           }
 
-          .feature-card:hover .feature-icon svg circle:nth-of-type(2) {
-              animation: iconPulse 1.5s ease-in-out infinite 0.2s;
-          }
+           .feature-card:nth-child(1) .feature-icon svg circle,
+           .feature-card:nth-child(3) .feature-icon svg circle {
+               filter: drop-shadow(0 0 3px rgba(18, 159, 202, 0.3));
+               transition: filter 0.3s ease;
+           }
 
-          .feature-card:hover .feature-icon svg circle:nth-of-type(3) {
-              animation: iconPulse 1.5s ease-in-out infinite 0.4s;
-          }
+           /* Pulsing animations only for blockchain card (card 2) */
+           .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(1) {
+               animation: blockPulse 1.6s ease-in-out infinite;
+           }
 
-          .feature-card:hover .feature-icon svg circle:nth-of-type(4) {
-              animation: iconPulse 1.5s ease-in-out infinite 0.1s;
-          }
+           .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(2) {
+               animation: blockPulse 1.6s ease-in-out infinite 0.25s;
+           }
 
-          .feature-card:hover .feature-icon svg circle:nth-of-type(5) {
-              animation: iconPulse 1.5s ease-in-out infinite 0.3s;
-          }
+           .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(3) {
+               animation: blockPulse 1.6s ease-in-out infinite 0.5s;
+           }
 
-          .feature-card:hover .feature-icon svg circle:nth-of-type(6) {
-              animation: iconPulse 1.5s ease-in-out infinite 0.5s;
-          }
+           .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(4) {
+               animation: blockPulse 1.6s ease-in-out infinite 0.15s;
+           }
 
-          .feature-card:hover .feature-icon svg circle:nth-of-type(7) {
-              animation: iconPulse 1.5s ease-in-out infinite 0.15s;
-          }
+           .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(5) {
+               animation: blockPulse 1.6s ease-in-out infinite 0.35s;
+           }
 
-          .feature-card:hover .feature-icon svg line:nth-of-type(1) {
-              animation: linePulse 1.8s ease-in-out infinite;
-          }
-
-          .feature-card:hover .feature-icon svg line:nth-of-type(2) {
-              animation: linePulse 1.8s ease-in-out infinite 0.3s;
-          }
-
-          .feature-card:hover .feature-icon svg line:nth-of-type(3) {
-              animation: linePulse 1.8s ease-in-out infinite 0.6s;
-          }
-
-          .feature-card:hover .feature-icon svg line:nth-of-type(4) {
-              animation: linePulse 1.8s ease-in-out infinite 0.2s;
-          }
-
-          .feature-card:hover .feature-icon svg line:nth-of-type(5) {
-              animation: linePulse 1.8s ease-in-out infinite 0.4s;
-          }
-
-          .feature-card:hover .feature-icon svg line:nth-of-type(6) {
-              animation: linePulse 1.8s ease-in-out infinite 0.5s;
-          }
-
-          .feature-card:hover .feature-icon svg path:nth-of-type(1) {
-              animation: pathPulse 2s ease-in-out infinite;
-          }
-
-          .feature-card:hover .feature-icon svg path:nth-of-type(2) {
-              animation: pathPulse 2s ease-in-out infinite 0.4s;
-          }
-
-          .feature-card:hover .feature-icon svg rect:nth-of-type(1) {
-              animation: blockPulse 1.6s ease-in-out infinite;
-          }
-
-          .feature-card:hover .feature-icon svg rect:nth-of-type(2) {
-              animation: blockPulse 1.6s ease-in-out infinite 0.25s;
-          }
-
-          .feature-card:hover .feature-icon svg rect:nth-of-type(3) {
-              animation: blockPulse 1.6s ease-in-out infinite 0.5s;
-          }
-
-          .feature-card:hover .feature-icon svg rect:nth-of-type(4) {
-              animation: blockPulse 1.6s ease-in-out infinite 0.15s;
-          }
-
-          .feature-card:hover .feature-icon svg rect:nth-of-type(5) {
-              animation: blockPulse 1.6s ease-in-out infinite 0.35s;
-          }
-
-          .feature-card:hover .feature-icon svg rect:nth-of-type(6) {
-              animation: blockPulse 1.6s ease-in-out infinite 0.55s;
-          }
+           .feature-card:nth-child(2):hover .feature-icon svg rect:nth-of-type(6) {
+               animation: blockPulse 1.6s ease-in-out infinite 0.55s;
+           }
 
                      @keyframes iconPulse {
                0%, 100% {
