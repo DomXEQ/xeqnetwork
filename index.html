@@ -1016,221 +1016,213 @@
             line-height: 1.7;
         }
 
-                 /* Use Cases Section */
-         .use-cases-section {
-             padding: 120px 40px;
-             max-width: 95%;
-             margin: 0 auto;
-             border-top: 1px solid rgba(18, 159, 202, 0.2);
-             position: relative;
-             z-index: 1;
-             min-height: 800px;
-         }
+                                   /* Use Cases Section */
+          .use-cases-section {
+              padding: 120px 40px;
+              max-width: 90%;
+              margin: 0 auto;
+              border-top: 1px solid rgba(18, 159, 202, 0.2);
+              position: relative;
+              z-index: 1;
+          }
 
-         .use-cases-header {
-             text-align: center;
-             margin-bottom: 80px;
-         }
+          .use-cases-header {
+              text-align: center;
+              margin-bottom: 80px;
+          }
 
-         .use-cases-title {
-             font-size: 48px;
-             font-weight: 700;
-             color: #FFFFFF;
-             margin-bottom: 20px;
-             line-height: 1.2;
-         }
+          .use-cases-title {
+              font-size: 48px;
+              font-weight: 700;
+              color: #FFFFFF;
+              margin-bottom: 20px;
+              line-height: 1.2;
+          }
 
-         .use-cases-subtitle {
-             font-size: 20px;
-             color: #FFFFFF;
-             line-height: 1.6;
-             opacity: 0.9;
-         }
+          .use-cases-subtitle {
+              font-size: 20px;
+              color: #FFFFFF;
+              line-height: 1.6;
+              opacity: 0.9;
+          }
 
-         .use-cases-network {
-             position: relative;
-             max-width: 1200px;
-             margin: 0 auto;
-             min-height: 600px;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-         }
+                     .terminal-container {
+               max-width: 900px;
+               margin: 0 auto;
+               background: #0a0a0a;
+               border: 2px solid rgba(18, 159, 202, 0.4);
+               border-radius: 8px;
+               box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 
+                           0 0 30px rgba(18, 159, 202, 0.2);
+               overflow: hidden;
+               position: relative;
+           }
 
-         .oracle-center {
-             position: absolute;
-             top: 50%;
-             left: 50%;
-             transform: translate(-50%, -50%);
-             z-index: 10;
-             text-align: center;
-         }
+           .terminal-header {
+               background: rgba(18, 159, 202, 0.1);
+               padding: 12px 20px;
+               border-bottom: 1px solid rgba(18, 159, 202, 0.3);
+               display: flex;
+               align-items: center;
+               gap: 10px;
+           }
 
-         .oracle-node {
-             width: 180px;
-             height: 180px;
-             margin: 0 auto 20px;
-             position: relative;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-         }
+           .terminal-dots {
+               display: flex;
+               gap: 8px;
+           }
 
-         .oracle-node svg {
-             width: 100%;
-             height: 100%;
-             filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.6));
-             animation: oraclePulse 3s ease-in-out infinite;
-         }
+           .terminal-dot {
+               width: 12px;
+               height: 12px;
+               border-radius: 50%;
+               background: rgba(18, 159, 202, 0.5);
+           }
 
-         @keyframes oraclePulse {
-             0%, 100% {
-                 transform: scale(1);
-                 filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.6));
-             }
-             50% {
-                 transform: scale(1.05);
-                 filter: drop-shadow(0 0 30px rgba(18, 159, 202, 0.9));
-             }
-         }
+           .terminal-dot:nth-child(1) {
+               background: rgba(255, 95, 87, 0.8);
+           }
 
-         .oracle-label {
-             font-size: 18px;
-             font-weight: 600;
-             color: #129fca;
-             margin-top: 15px;
-         }
+           .terminal-dot:nth-child(2) {
+               background: rgba(255, 189, 46, 0.8);
+           }
 
-         .use-case-node {
-             position: absolute;
-             width: 260px;
-             text-align: center;
-             transition: transform 0.3s ease;
-         }
+           .terminal-dot:nth-child(3) {
+               background: rgba(40, 201, 64, 0.8);
+           }
 
-         .use-case-node:hover {
-             transform: scale(1.05);
-         }
+           .terminal-title {
+               margin-left: auto;
+               font-size: 14px;
+               color: rgba(18, 159, 202, 0.8);
+               font-family: 'Courier New', monospace;
+               font-weight: 600;
+               letter-spacing: 1px;
+           }
 
-         .use-case-node.top {
-             top: 0;
-             left: 50%;
-             transform: translateX(-50%);
-         }
+           .terminal-content {
+               padding: 50px 60px;
+               min-height: 400px;
+               position: relative;
+           }
 
-         .use-case-node.right {
-             right: 0;
-             top: 50%;
-             transform: translateY(-50%);
-         }
+           .use-case-slide {
+               display: none;
+               animation: fadeIn 0.5s ease;
+           }
 
-         .use-case-node.bottom {
-             bottom: 0;
-             left: 50%;
-             transform: translateX(-50%);
-         }
+           .use-case-slide.active {
+               display: block;
+           }
 
-         .use-case-node.left {
-             left: 0;
-             top: 50%;
-             transform: translateY(-50%);
-         }
+           @keyframes fadeIn {
+               from {
+                   opacity: 0;
+                   transform: translateX(20px);
+               }
+               to {
+                   opacity: 1;
+                   transform: translateX(0);
+               }
+           }
 
-         .use-case-node:hover {
-             transform: translateX(-50%) scale(1.05);
-         }
+           .use-case-terminal {
+               text-align: center;
+           }
 
-         .use-case-node.right:hover {
-             transform: translateY(-50%) scale(1.05);
-         }
+           .use-case-terminal-icon {
+               width: 120px;
+               height: 120px;
+               margin: 0 auto 30px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+           }
 
-         .use-case-node.bottom:hover {
-             transform: translateX(-50%) scale(1.05);
-         }
+           .use-case-terminal-icon svg {
+               width: 100%;
+               height: 100%;
+               filter: drop-shadow(0 0 15px rgba(18, 159, 202, 0.6));
+           }
 
-         .use-case-node.left:hover {
-             transform: translateY(-50%) scale(1.05);
-         }
+           .use-case-terminal h3 {
+               font-size: 28px;
+               font-weight: 600;
+               color: #129fca;
+               margin-bottom: 20px;
+               line-height: 1.3;
+               font-family: 'Courier New', monospace;
+           }
 
-         .use-case-icon {
-             width: 100px;
-             height: 100px;
-             margin: 0 auto 20px;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             position: relative;
-         }
+           .use-case-terminal p {
+               font-size: 16px;
+               color: rgba(255, 255, 255, 0.9);
+               line-height: 1.8;
+               max-width: 600px;
+               margin: 0 auto;
+           }
 
-         .use-case-icon svg {
-             width: 100%;
-             height: 100%;
-             filter: drop-shadow(0 0 10px rgba(18, 159, 202, 0.4));
-             transition: filter 0.3s ease;
-         }
+           .terminal-nav {
+               position: absolute;
+               top: 50%;
+               transform: translateY(-50%);
+               background: rgba(18, 159, 202, 0.1);
+               border: 1px solid rgba(18, 159, 202, 0.3);
+               width: 50px;
+               height: 50px;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               cursor: pointer;
+               transition: all 0.3s ease;
+               z-index: 10;
+           }
 
-         .use-case-node:hover .use-case-icon svg {
-             filter: drop-shadow(0 0 20px rgba(18, 159, 202, 0.8));
-         }
+           .terminal-nav:hover {
+               background: rgba(18, 159, 202, 0.2);
+               border-color: #129fca;
+               transform: translateY(-50%) scale(1.1);
+           }
 
-         .use-case-node h3 {
-             font-size: 20px;
-             font-weight: 600;
-             color: #129fca;
-             margin-bottom: 12px;
-             line-height: 1.3;
-         }
+           .terminal-nav.prev {
+               left: 20px;
+           }
 
-         .use-case-node p {
-             font-size: 14px;
-             color: #FFFFFF;
-             line-height: 1.6;
-             opacity: 0.9;
-         }
+           .terminal-nav.next {
+               right: 20px;
+           }
 
-         .connection-lines-svg {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             z-index: 1;
-             pointer-events: none;
-         }
+           .terminal-nav svg {
+               width: 24px;
+               height: 24px;
+               fill: #129fca;
+           }
 
-         .connection-line {
-             stroke: rgba(18, 159, 202, 0.4);
-             stroke-width: 2;
-             fill: none;
-             animation: dataFlowLine 3s ease-in-out infinite;
-         }
+           .terminal-indicators {
+               display: flex;
+               justify-content: center;
+               gap: 12px;
+               padding: 20px;
+               background: rgba(0, 0, 0, 0.3);
+               border-top: 1px solid rgba(18, 159, 202, 0.2);
+           }
 
-         .connection-line:nth-child(1) {
-             animation-delay: 0s;
-         }
+           .terminal-indicator {
+               width: 10px;
+               height: 10px;
+               border-radius: 50%;
+               background: rgba(18, 159, 202, 0.3);
+               border: 1px solid rgba(18, 159, 202, 0.5);
+               cursor: pointer;
+               transition: all 0.3s ease;
+           }
 
-         .connection-line:nth-child(2) {
-             animation-delay: 0.5s;
-         }
-
-         .connection-line:nth-child(3) {
-             animation-delay: 1s;
-         }
-
-         .connection-line:nth-child(4) {
-             animation-delay: 1.5s;
-         }
-
-         @keyframes dataFlowLine {
-             0%, 100% {
-                 stroke-opacity: 0.4;
-                 stroke-width: 2;
-             }
-             50% {
-                 stroke-opacity: 0.8;
-                 stroke-width: 3;
-             }
-         }
+           .terminal-indicator.active {
+               background: #129fca;
+               border-color: #129fca;
+               box-shadow: 0 0 10px rgba(18, 159, 202, 0.6);
+           }
 
                    /* Responsive */
          @media (max-width: 768px) {
@@ -1299,80 +1291,51 @@
                  padding: 80px 20px;
              }
 
-                           .use-cases-section {
-                  padding: 80px 20px;
-                  min-height: auto;
-              }
+                                                                                                                                                                                                                               .use-cases-section {
+                     padding: 80px 20px;
+                 }
 
-              .use-cases-title {
-                  font-size: 32px;
-              }
+                 .use-cases-title {
+                     font-size: 32px;
+                 }
 
-              .use-cases-network {
-                  min-height: auto;
-                  flex-direction: column;
-                  position: relative;
-                  padding: 40px 0;
-              }
+                 .terminal-container {
+                     max-width: 100%;
+                     margin: 0 10px;
+                 }
 
-              .connection-lines-svg {
-                  display: none;
-              }
+                 .terminal-content {
+                     padding: 40px 20px 40px 60px;
+                     min-height: 350px;
+                 }
 
-              .oracle-center {
-                  position: relative;
-                  top: auto;
-                  left: auto;
-                  transform: none;
-                  margin-bottom: 40px;
-              }
+                 .terminal-nav {
+                     width: 40px;
+                     height: 40px;
+                 }
 
-              .oracle-node {
-                  width: 140px;
-                  height: 140px;
-              }
+                 .terminal-nav.prev {
+                     left: 10px;
+                 }
 
-              .use-case-node {
-                  position: relative;
-                  width: 100%;
-                  max-width: 320px;
-                  margin-bottom: 40px;
-                  transform: none !important;
-              }
+                 .terminal-nav.next {
+                     right: 10px;
+                 }
 
-              .use-case-node.top,
-              .use-case-node.right,
-              .use-case-node.bottom,
-              .use-case-node.left {
-                  top: auto;
-                  right: auto;
-                  bottom: auto;
-                  left: auto;
-                  transform: none;
-              }
+                 .use-case-terminal-icon {
+                     width: 100px;
+                     height: 100px;
+                     margin-bottom: 20px;
+                 }
 
-              .use-case-node:hover {
-                  transform: scale(1.02) !important;
-              }
+                 .use-case-terminal h3 {
+                     font-size: 22px;
+                 }
 
-              .use-case-node.right:hover,
-              .use-case-node.bottom:hover,
-              .use-case-node.left:hover {
-                  transform: scale(1.02) !important;
-              }
-
-              .use-case-icon {
-                  width: 80px;
-                  height: 80px;
-              }
-
-              .use-case-node h3 {
-                  font-size: 18px;
-              }
-
-              .use-case-node p {
-                  font-size: 13px;
-              }
+                 .use-case-terminal p {
+                     font-size: 14px;
+                     padding: 0 10px;
+                 }
 
              .team-section {
                  padding: 80px 20px;
@@ -1677,177 +1640,152 @@
                                   </div>
      </section>
 
-           <!-- Use Cases Section -->
-      <section class="use-cases-section" id="use-cases">
-          <div class="use-cases-header">
-              <h2 class="use-cases-title">Use Cases</h2>
-              <p class="use-cases-subtitle">Powering the next generation of private decentralized applications</p>
-          </div>
-          <div class="use-cases-network">
-              <!-- Connection Lines SVG -->
-              <svg class="connection-lines-svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
-                  <!-- Line from center to top (DEX) -->
-                  <line class="connection-line" x1="600" y1="300" x2="600" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
-                  <!-- Line from center to right (Privacy) -->
-                  <line class="connection-line" x1="600" y1="300" x2="1120" y2="300" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
-                  <!-- Line from center to bottom (DeFi) -->
-                  <line class="connection-line" x1="600" y1="300" x2="600" y2="520" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
-                  <!-- Line from center to left (Dev Tools) -->
-                  <line class="connection-line" x1="600" y1="300" x2="80" y2="300" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
-              </svg>
+                                               <!-- Use Cases Section -->
+        <section class="use-cases-section" id="use-cases">
+            <div class="use-cases-header">
+                <h2 class="use-cases-title">Use Cases</h2>
+                <p class="use-cases-subtitle">Powering the next generation of private decentralized applications</p>
+            </div>
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                    </div>
+                    <div class="terminal-title">EQUILIBRIA_USE_CASES</div>
+                </div>
+                <div class="terminal-content">
+                    <button class="terminal-nav prev" id="prevUseCase" aria-label="Previous use case">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="terminal-nav next" id="nextUseCase" aria-label="Next use case">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Decentralized Exchanges -->
+                    <div class="use-case-slide active">
+                        <div class="use-case-terminal">
+                            <div class="use-case-terminal-icon">
+                                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="dexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M 20 40 L 60 40 L 50 30 M 60 40 L 50 50" stroke="#129fca" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    <path d="M 100 40 L 60 40 L 70 30 M 60 40 L 70 50" stroke="#129fca" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    <circle cx="60" cy="60" r="15" fill="url(#dexGradient)" opacity="0.3"/>
+                                    <circle cx="60" cy="60" r="12" fill="none" stroke="#129fca" stroke-width="2"/>
+                                    <circle cx="30" cy="40" r="8" fill="#129fca" opacity="0.6"/>
+                                    <circle cx="90" cy="40" r="8" fill="#129fca" opacity="0.6"/>
+                                    <path d="M 60 75 L 60 95" stroke="#129fca" stroke-width="3" stroke-linecap="round"/>
+                                    <circle cx="60" cy="100" r="6" fill="#129fca"/>
+                                    <line x1="30" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                                    <line x1="90" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                                </svg>
+                            </div>
+                            <h3>Decentralized Exchanges</h3>
+                            <p>Enable private trading on DEX platforms with Equilibria's private data oracle delivering real-time price feeds and market data while preserving transaction privacy and protecting user information.</p>
+                        </div>
+                    </div>
 
-              <!-- Central Oracle Node -->
-              <div class="oracle-center">
-                  <div class="oracle-node">
-                      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="oracleCenterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <!-- Central Oracle Node -->
-                          <circle cx="100" cy="100" r="60" fill="url(#oracleCenterGradient)" opacity="0.3"/>
-                          <circle cx="100" cy="100" r="50" fill="none" stroke="#129fca" stroke-width="4"/>
-                          <circle cx="100" cy="100" r="35" fill="url(#oracleCenterGradient)" opacity="0.5"/>
-                          <circle cx="100" cy="100" r="25" fill="none" stroke="#129fca" stroke-width="3"/>
-                          <circle cx="100" cy="100" r="15" fill="#129fca"/>
-                          <!-- Outer connecting nodes -->
-                          <circle cx="100" cy="40" r="8" fill="#129fca" opacity="0.7"/>
-                          <circle cx="160" cy="100" r="8" fill="#129fca" opacity="0.7"/>
-                          <circle cx="100" cy="160" r="8" fill="#129fca" opacity="0.7"/>
-                          <circle cx="40" cy="100" r="8" fill="#129fca" opacity="0.7"/>
-                          <!-- Connection lines to outer nodes -->
-                          <line x1="100" y1="48" x2="100" y2="65" stroke="rgba(18,159,202,0.5)" stroke-width="2"/>
-                          <line x1="152" y1="100" x2="135" y2="100" stroke="rgba(18,159,202,0.5)" stroke-width="2"/>
-                          <line x1="100" y1="152" x2="100" y2="135" stroke="rgba(18,159,202,0.5)" stroke-width="2"/>
-                          <line x1="48" y1="100" x2="65" y2="100" stroke="rgba(18,159,202,0.5)" stroke-width="2"/>
-                      </svg>
-                  </div>
-                  <div class="oracle-label">Private Oracle</div>
-              </div>
+                    <!-- Privacy-Centric Protocols -->
+                    <div class="use-case-slide">
+                        <div class="use-case-terminal">
+                            <div class="use-case-terminal-icon">
+                                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="privacyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M 60 25 L 75 35 L 75 55 C 75 75 60 85 60 85 C 60 85 45 75 45 55 L 45 35 Z" fill="url(#privacyGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                                    <path d="M 60 35 L 68 40 L 68 55 C 68 65 60 70 60 70 C 60 70 52 65 52 55 L 52 40 Z" fill="none" stroke="#129fca" stroke-width="2"/>
+                                    <circle cx="35" cy="50" r="6" fill="#129fca" opacity="0.6"/>
+                                    <circle cx="85" cy="50" r="6" fill="#129fca" opacity="0.6"/>
+                                    <circle cx="60" cy="75" r="6" fill="#129fca" opacity="0.6"/>
+                                    <line x1="35" y1="50" x2="52" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                                    <line x1="85" y1="50" x2="68" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                                    <line x1="60" y1="70" x2="60" y2="75" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
+                                </svg>
+                            </div>
+                            <h3>Privacy-Centric Protocols</h3>
+                            <p>Build anonymous protocols and applications with Equilibria's private data oracle, ensuring sensitive information and user data remain protected while maintaining full functionality and transparency where needed.</p>
+                        </div>
+                    </div>
 
-              <!-- Top Use Case - Decentralized Exchanges -->
-              <div class="use-case-node top">
-                  <div class="use-case-icon">
-                      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="dexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <!-- Exchange Arrows -->
-                          <path d="M 20 40 L 60 40 L 50 30 M 60 40 L 50 50" stroke="#129fca" stroke-width="3" fill="none" stroke-linecap="round"/>
-                          <path d="M 100 40 L 60 40 L 70 30 M 60 40 L 70 50" stroke="#129fca" stroke-width="3" fill="none" stroke-linecap="round"/>
-                          <!-- Central Node -->
-                          <circle cx="60" cy="60" r="15" fill="url(#dexGradient)" opacity="0.3"/>
-                          <circle cx="60" cy="60" r="12" fill="none" stroke="#129fca" stroke-width="2"/>
-                          <!-- Exchange Nodes -->
-                          <circle cx="30" cy="40" r="8" fill="#129fca" opacity="0.6"/>
-                          <circle cx="90" cy="40" r="8" fill="#129fca" opacity="0.6"/>
-                          <!-- Vertical Flow -->
-                          <path d="M 60 75 L 60 95" stroke="#129fca" stroke-width="3" stroke-linecap="round"/>
-                          <circle cx="60" cy="100" r="6" fill="#129fca"/>
-                          <!-- Connection Lines -->
-                          <line x1="30" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                          <line x1="90" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      </svg>
-                  </div>
-                  <h3>Decentralized Exchanges</h3>
-                  <p>Enable private trading on DEX platforms with Equilibria's private data oracle delivering real-time price feeds and market data while preserving transaction privacy and protecting user information.</p>
-              </div>
+                    <!-- DeFI & Stablecoins -->
+                    <div class="use-case-slide">
+                        <div class="use-case-terminal">
+                            <div class="use-case-terminal-icon">
+                                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="defiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="40" cy="50" r="18" fill="url(#defiGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                                    <circle cx="40" cy="50" r="14" fill="none" stroke="#129fca" stroke-width="2"/>
+                                    <text x="40" y="55" font-family="Arial" font-size="12" fill="#129fca" text-anchor="middle" font-weight="bold">$</text>
+                                    <circle cx="80" cy="50" r="18" fill="url(#defiGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                                    <circle cx="80" cy="50" r="14" fill="none" stroke="#129fca" stroke-width="2"/>
+                                    <text x="80" y="55" font-family="Arial" font-size="12" fill="#129fca" text-anchor="middle" font-weight="bold">$</text>
+                                    <circle cx="60" cy="85" r="12" fill="#129fca" opacity="0.3"/>
+                                    <circle cx="60" cy="85" r="9" fill="none" stroke="#129fca" stroke-width="2"/>
+                                    <line x1="50" y1="60" x2="55" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
+                                    <line x1="70" y1="60" x2="65" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>DeFI & Stablecoins</h3>
+                            <p>Secure DeFi applications and stablecoin protocols with reliable private data feeds from Equilibria's oracle network, providing accurate market rates and economic data without compromising user privacy.</p>
+                        </div>
+                    </div>
 
-              <!-- Right Use Case - Privacy-Centric Protocols -->
-              <div class="use-case-node right">
-                  <div class="use-case-icon">
-                      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="privacyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <!-- Shield -->
-                          <path d="M 60 25 L 75 35 L 75 55 C 75 75 60 85 60 85 C 60 85 45 75 45 55 L 45 35 Z" fill="url(#privacyGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
-                          <path d="M 60 35 L 68 40 L 68 55 C 68 65 60 70 60 70 C 60 70 52 65 52 55 L 52 40 Z" fill="none" stroke="#129fca" stroke-width="2"/>
-                          <!-- Nodes around shield -->
-                          <circle cx="35" cy="50" r="6" fill="#129fca" opacity="0.6"/>
-                          <circle cx="85" cy="50" r="6" fill="#129fca" opacity="0.6"/>
-                          <circle cx="60" cy="75" r="6" fill="#129fca" opacity="0.6"/>
-                          <!-- Connection lines -->
-                          <line x1="35" y1="50" x2="52" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                          <line x1="85" y1="50" x2="68" y2="50" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                          <line x1="60" y1="70" x2="60" y2="75" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      </svg>
-                  </div>
-                  <h3>Privacy-Centric Protocols</h3>
-                  <p>Build anonymous protocols and applications with Equilibria's private data oracle, ensuring sensitive information and user data remain protected while maintaining full functionality and transparency where needed.</p>
-              </div>
-
-              <!-- Bottom Use Case - DeFI & Stablecoins -->
-              <div class="use-case-node bottom">
-                  <div class="use-case-icon">
-                      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="defiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <!-- Coins/Stablecoins -->
-                          <circle cx="40" cy="50" r="18" fill="url(#defiGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
-                          <circle cx="40" cy="50" r="14" fill="none" stroke="#129fca" stroke-width="2"/>
-                          <text x="40" y="55" font-family="Arial" font-size="12" fill="#129fca" text-anchor="middle" font-weight="bold">$</text>
-                          
-                          <circle cx="80" cy="50" r="18" fill="url(#defiGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
-                          <circle cx="80" cy="50" r="14" fill="none" stroke="#129fca" stroke-width="2"/>
-                          <text x="80" y="55" font-family="Arial" font-size="12" fill="#129fca" text-anchor="middle" font-weight="bold">$</text>
-                          
-                          <!-- Central Oracle Node -->
-                          <circle cx="60" cy="85" r="12" fill="#129fca" opacity="0.3"/>
-                          <circle cx="60" cy="85" r="9" fill="none" stroke="#129fca" stroke-width="2"/>
-                          <!-- Connection Lines -->
-                          <line x1="50" y1="60" x2="55" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
-                          <line x1="70" y1="60" x2="65" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
-                      </svg>
-                  </div>
-                  <h3>DeFI & Stablecoins</h3>
-                  <p>Secure DeFi applications and stablecoin protocols with reliable private data feeds from Equilibria's oracle network, providing accurate market rates and economic data without compromising user privacy.</p>
-              </div>
-
-              <!-- Left Use Case - Dev Tools & Data Services -->
-              <div class="use-case-node left">
-                  <div class="use-case-icon">
-                      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                              <linearGradient id="devGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
-                                  <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
-                              </linearGradient>
-                          </defs>
-                          <!-- Server/Database -->
-                          <rect x="40" y="30" width="40" height="50" rx="3" fill="url(#devGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
-                          <rect x="45" y="40" width="10" height="8" fill="#129fca" opacity="0.6"/>
-                          <rect x="58" y="40" width="10" height="8" fill="#129fca" opacity="0.6"/>
-                          <rect x="45" y="52" width="10" height="8" fill="#129fca" opacity="0.6"/>
-                          <rect x="58" y="52" width="10" height="8" fill="#129fca" opacity="0.6"/>
-                          <!-- Data Nodes -->
-                          <circle cx="30" cy="70" r="6" fill="#129fca" opacity="0.6"/>
-                          <circle cx="90" cy="70" r="6" fill="#129fca" opacity="0.6"/>
-                          <!-- Connection Lines -->
-                          <line x1="40" y1="55" x2="30" y2="70" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
-                          <line x1="80" y1="55" x2="90" y2="70" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
-                          <!-- Code Brackets -->
-                          <path d="M 20 85 L 25 90 L 20 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
-                          <path d="M 100 85 L 95 90 L 100 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
-                      </svg>
-                  </div>
-                  <h3>Dev Tools & Data Services</h3>
-                  <p>Integrate Equilibria's private data oracle into your development toolkit for secure APIs, analytics platforms, and data services that deliver real-time information while protecting both providers and consumers.</p>
-              </div>
-          </div>
-      </section>
+                    <!-- Dev Tools & Data Services -->
+                    <div class="use-case-slide">
+                        <div class="use-case-terminal">
+                            <div class="use-case-terminal-icon">
+                                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="devGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#129fca;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#0a7fa0;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="40" y="30" width="40" height="50" rx="3" fill="url(#devGradient)" opacity="0.2" stroke="#129fca" stroke-width="2"/>
+                                    <rect x="45" y="40" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                                    <rect x="58" y="40" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                                    <rect x="45" y="52" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                                    <rect x="58" y="52" width="10" height="8" fill="#129fca" opacity="0.6"/>
+                                    <circle cx="30" cy="70" r="6" fill="#129fca" opacity="0.6"/>
+                                    <circle cx="90" cy="70" r="6" fill="#129fca" opacity="0.6"/>
+                                    <line x1="40" y1="55" x2="30" y2="70" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                                    <line x1="80" y1="55" x2="90" y2="70" stroke="rgba(18,159,202,0.4)" stroke-width="1.5"/>
+                                    <path d="M 20 85 L 25 90 L 20 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                    <path d="M 100 85 L 95 90 L 100 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>Dev Tools & Data Services</h3>
+                            <p>Integrate Equilibria's private data oracle into your development toolkit for secure APIs, analytics platforms, and data services that deliver real-time information while protecting both providers and consumers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-indicators">
+                    <div class="terminal-indicator active" data-slide="0"></div>
+                    <div class="terminal-indicator" data-slide="1"></div>
+                    <div class="terminal-indicator" data-slide="2"></div>
+                    <div class="terminal-indicator" data-slide="3"></div>
+                </div>
+            </div>
+        </section>
 
      <!-- Team Section -->
      <section class="team-section" id="team">
@@ -2026,13 +1964,13 @@
              });
          }, observerOptions);
 
-                                                                                                                                                               // Observe elements for animation
-             document.querySelectorAll('.stat-item, .feature-card, .use-case-node, .oracle-center, .about-section > div').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
+                                                                                                                                                                                                                                                                                                                               // Observe elements for animation
+                            document.querySelectorAll('.stat-item, .feature-card, .terminal-container, .about-section > div').forEach(el => {
+                 el.style.opacity = '0';
+                 el.style.transform = 'translateY(20px)';
+                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                 observer.observe(el);
+             });
 
           // Animate Launch Year (counting down from 2025 to 2018)
           const launchYearElement = document.getElementById('launch-year');
@@ -2085,9 +2023,63 @@
               });
           }, { threshold: 0.5 });
           
-          if (statsSection) {
-              statsObserver.observe(statsSection);
-          }
-     </script>
+                     if (statsSection) {
+               statsObserver.observe(statsSection);
+           }
+
+           // Terminal Use Cases Navigation
+           const useCaseSlides = document.querySelectorAll('.use-case-slide');
+           const indicators = document.querySelectorAll('.terminal-indicator');
+           const prevBtn = document.getElementById('prevUseCase');
+           const nextBtn = document.getElementById('nextUseCase');
+           let currentSlide = 0;
+
+           function showSlide(index) {
+               // Remove active class from all slides and indicators
+               useCaseSlides.forEach(slide => slide.classList.remove('active'));
+               indicators.forEach(indicator => indicator.classList.remove('active'));
+
+               // Add active class to current slide and indicator
+               useCaseSlides[index].classList.add('active');
+               indicators[index].classList.add('active');
+               currentSlide = index;
+           }
+
+           function nextSlide() {
+               currentSlide = (currentSlide + 1) % useCaseSlides.length;
+               showSlide(currentSlide);
+           }
+
+           function prevSlide() {
+               currentSlide = (currentSlide - 1 + useCaseSlides.length) % useCaseSlides.length;
+               showSlide(currentSlide);
+           }
+
+           // Event listeners
+           nextBtn.addEventListener('click', nextSlide);
+           prevBtn.addEventListener('click', prevSlide);
+
+           // Indicator clicks
+           indicators.forEach((indicator, index) => {
+               indicator.addEventListener('click', () => {
+                   showSlide(index);
+               });
+           });
+
+           // Keyboard navigation
+           document.addEventListener('keydown', (e) => {
+               const useCasesSection = document.getElementById('use-cases');
+               const rect = useCasesSection.getBoundingClientRect();
+               const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+               
+               if (isInView) {
+                   if (e.key === 'ArrowRight') {
+                       nextSlide();
+                   } else if (e.key === 'ArrowLeft') {
+                       prevSlide();
+                   }
+               }
+           });
+      </script>
 </body>
 </html>
