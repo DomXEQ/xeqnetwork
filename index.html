@@ -371,300 +371,683 @@
             justify-content: center;
             align-items: center;
             padding: 180px 40px 120px;
-            text-align: center;
+            text-align: left;
             position: relative;
             z-index: 1;
             overflow: hidden;
         }
 
-        /* Decentralized Node Visualization - Background */
+        /* 3D Holographic Network Visualization - WOW Factor Hero */
         .hero-section::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            opacity: 0.15;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(18, 159, 202, 0.15) 0%, transparent 70%);
+            opacity: 0.6;
             z-index: 0;
             pointer-events: none;
+            animation: pulseGlow 4s ease-in-out infinite;
         }
 
-                 .node-network {
-             position: absolute;
-             top: 50%;
-             left: 50%;
-             transform: translate(-50%, -50%);
-             width: 800px;
-             height: 800px;
-             opacity: 0.4;
-             z-index: 0;
-             pointer-events: none;
-         }
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        /* True 3D Space Scene */
+        .node-network {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1px;
+            height: 1px;
+            transform: translate(-50%, -50%);
+            perspective: 2000px;
+            perspective-origin: center center;
+            z-index: 0;
+            pointer-events: none;
+            overflow: visible;
+        }
 
         .node-container {
             position: relative;
             width: 100%;
             height: 100%;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
-                 .node {
-             position: absolute;
-             width: 35px;
-             height: 35px;
-             border-radius: 50%;
-             background: radial-gradient(circle, rgba(18, 159, 202, 0.8), rgba(18, 159, 202, 0.3));
-             border: 1.5px solid rgba(18, 159, 202, 0.6);
-             box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
-             animation: pulse 3s ease-in-out infinite, dataFlow 4s ease-in-out infinite;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-         }
-
-         .node::after {
-             content: '';
-             width: 14px;
-             height: 14px;
-             border-radius: 50%;
-             background: rgba(18, 159, 202, 0.9);
-             box-shadow: 0 0 10px rgba(18, 159, 202, 0.7);
-         }
-
-        .node-1 {
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation-delay: 0s;
+        /* Base node styles - only used for center pulsar now */
+        .node {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            opacity: 1 !important;
+            visibility: visible !important;
+            backface-visibility: visible;
         }
 
-        .node-2 {
-            top: 25%;
-            left: 80px;
+        .node::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            animation: rotateRing 3s linear infinite;
+        }
+
+        .node::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(18, 159, 202, 1);
+            box-shadow: 
+                0 0 15px rgba(18, 159, 202, 1),
+                0 0 30px rgba(18, 159, 202, 0.6);
+            z-index: 1;
+            animation: corePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 
+                    0 0 30px rgba(18, 159, 202, 0.8),
+                    0 0 60px rgba(18, 159, 202, 0.4),
+                    inset 0 0 20px rgba(18, 159, 202, 0.3);
+            }
+            50% { 
+                transform: scale(1.15);
+                box-shadow: 
+                    0 0 40px rgba(18, 159, 202, 1),
+                    0 0 80px rgba(18, 159, 202, 0.6),
+                    inset 0 0 25px rgba(18, 159, 202, 0.4);
+            }
+        }
+
+        @keyframes hologramFlicker {
+            0%, 100% { filter: brightness(1); }
+            25% { filter: brightness(1.1); }
+            50% { filter: brightness(0.95); }
+            75% { filter: brightness(1.05); }
+        }
+
+        @keyframes rotateRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes corePulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.8; }
+        }
+
+        /* True 3D Sphere Coordinates - Nodes as Planets in Space */
+        /* Using spherical coordinates converted to Cartesian: 
+           x = r * sin(θ) * cos(φ)
+           y = r * sin(θ) * sin(φ)  
+           z = r * cos(θ)
+           Where θ (theta) is polar angle, φ (phi) is azimuthal angle, r is radius
+        */
+        
+        /* Pulsar/Oracle Center - Simple Rotating Orb */
+        .node-center {
+            transform: translate3d(0, 0, 0);
+            width: 80px;
+            height: 80px;
+            margin-left: -40px;
+            margin-top: -40px;
+            animation: pulsarRotateAndPulse 20s ease-in-out infinite;
+            z-index: 2;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(18, 159, 202, 1) 0%,
+                rgba(18, 159, 202, 0.95) 20%,
+                rgba(18, 159, 202, 0.85) 40%,
+                rgba(18, 159, 202, 0.7) 60%,
+                rgba(18, 159, 202, 0.5) 80%,
+                transparent 100%);
+            box-shadow: 
+                0 0 60px rgba(18, 159, 202, 1),
+                0 0 120px rgba(18, 159, 202, 0.9),
+                0 0 180px rgba(18, 159, 202, 0.7),
+                0 0 240px rgba(18, 159, 202, 0.4),
+                inset -15px -15px 30px rgba(0, 0, 0, 0.4),
+                inset 15px 15px 30px rgba(255, 255, 255, 0.15);
+            transform-style: preserve-3d;
+        }
+
+        @keyframes pulsarRotateAndPulse {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateZ(0deg) scale(1);
+                box-shadow: 
+                    0 0 60px rgba(18, 159, 202, 1),
+                    0 0 120px rgba(18, 159, 202, 0.9),
+                    0 0 180px rgba(18, 159, 202, 0.7),
+                    0 0 240px rgba(18, 159, 202, 0.4);
+            }
+            25% { 
+                transform: translate3d(0, 0, 0) rotateZ(90deg) scale(1.1);
+                box-shadow: 
+                    0 0 70px rgba(18, 159, 202, 1),
+                    0 0 140px rgba(18, 159, 202, 1),
+                    0 0 210px rgba(18, 159, 202, 0.8),
+                    0 0 280px rgba(18, 159, 202, 0.5);
+            }
+            50% { 
+                transform: translate3d(0, 0, 0) rotateZ(180deg) scale(1);
+                box-shadow: 
+                    0 0 60px rgba(18, 159, 202, 1),
+                    0 0 120px rgba(18, 159, 202, 0.9),
+                    0 0 180px rgba(18, 159, 202, 0.7),
+                    0 0 240px rgba(18, 159, 202, 0.4);
+            }
+            75% { 
+                transform: translate3d(0, 0, 0) rotateZ(270deg) scale(1.1);
+                box-shadow: 
+                    0 0 70px rgba(18, 159, 202, 1),
+                    0 0 140px rgba(18, 159, 202, 1),
+                    0 0 210px rgba(18, 159, 202, 0.8),
+                    0 0 280px rgba(18, 159, 202, 0.5);
+            }
+            100% { 
+                transform: translate3d(0, 0, 0) rotateZ(360deg) scale(1);
+                box-shadow: 
+                    0 0 60px rgba(18, 159, 202, 1),
+                    0 0 120px rgba(18, 159, 202, 0.9),
+                    0 0 180px rgba(18, 159, 202, 0.7),
+                    0 0 240px rgba(18, 159, 202, 0.4);
+            }
+        }
+
+        .node-center::after {
+            width: 35px;
+            height: 35px;
+            margin-left: -17.5px;
+            margin-top: -17.5px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(18, 159, 202, 1) 0%, rgba(18, 159, 202, 0.8) 100%);
+            box-shadow: 
+                0 0 30px rgba(18, 159, 202, 1),
+                0 0 60px rgba(18, 159, 202, 0.9),
+                0 0 90px rgba(18, 159, 202, 0.7);
+            animation: corePulse 2s ease-in-out infinite;
+        }
+
+        /* Animated Data Particles - Traveling in 3D Space */
+        .data-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            margin-left: -4px;
+            margin-top: -4px;
+            background: radial-gradient(circle, rgba(18, 159, 202, 1) 0%, rgba(18, 159, 202, 0.9) 50%, transparent 100%);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 10px rgba(18, 159, 202, 1),
+                0 0 20px rgba(18, 159, 202, 0.8),
+                0 0 30px rgba(18, 159, 202, 0.5);
+            z-index: 3;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3d;
+        }
+
+        .particle-path-1 {
+            animation: particleFlow1 4s linear infinite;
+        }
+
+        .particle-path-2 {
+            animation: particleFlow2 4.5s linear infinite;
             animation-delay: 0.5s;
         }
 
-        .node-3 {
-            top: 25%;
-            right: 80px;
+        .particle-path-3 {
+            animation: particleFlow3 5s linear infinite;
             animation-delay: 1s;
         }
 
-        .node-4 {
-            bottom: 25%;
-            left: 80px;
+        .particle-path-4 {
+            animation: particleFlow4 4.2s linear infinite;
             animation-delay: 1.5s;
         }
 
-        .node-5 {
-            bottom: 25%;
-            right: 80px;
+        .particle-path-5 {
+            animation: particleFlow5 4.8s linear infinite;
             animation-delay: 2s;
         }
 
-        .node-6 {
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        .particle-path-6 {
+            animation: particleFlow6 5.2s linear infinite;
             animation-delay: 2.5s;
         }
 
-        .node-center {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 45px;
-            height: 45px;
-            animation-delay: 0s;
-            z-index: 2;
+        .particle-path-7 {
+            animation: particleFlow7 4.3s linear infinite;
+            animation-delay: 0.2s;
         }
-        
-        .node-7 {
-            top: 15%;
-            left: 25%;
+
+        .particle-path-8 {
+            animation: particleFlow8 4.7s linear infinite;
             animation-delay: 0.7s;
         }
-        
-        .node-8 {
-            top: 15%;
-            right: 25%;
-            animation-delay: 1.1s;
+
+        .particle-path-9 {
+            animation: particleFlow9 5.1s linear infinite;
+            animation-delay: 1.2s;
         }
-        
-        .node-9 {
-            top: 40%;
-            left: 15%;
-            animation-delay: 1.3s;
-        }
-        
-        .node-10 {
-            top: 40%;
-            right: 15%;
+
+        .particle-path-10 {
+            animation: particleFlow10 4.4s linear infinite;
             animation-delay: 1.7s;
         }
-        
-        .node-11 {
-            bottom: 40%;
-            left: 25%;
+
+        .particle-path-11 {
+            animation: particleFlow11 4.9s linear infinite;
+            animation-delay: 2.2s;
+        }
+
+        .particle-path-12 {
+            animation: particleFlow12 5.3s linear infinite;
+            animation-delay: 0.4s;
+        }
+
+        .particle-path-13 {
+            animation: particleFlow13 4.6s linear infinite;
+            animation-delay: 0.9s;
+        }
+
+        .particle-path-14 {
+            animation: particleFlow14 5.0s linear infinite;
+            animation-delay: 1.4s;
+        }
+
+        .particle-path-15 {
+            animation: particleFlow15 4.5s linear infinite;
+            animation-delay: 1.9s;
+        }
+
+        .particle-path-16 {
+            animation: particleFlow16 4.8s linear infinite;
+            animation-delay: 2.4s;
+        }
+
+        .particle-path-17 {
+            animation: particleFlow17 4.2s linear infinite;
+            animation-delay: 0.1s;
+        }
+
+        .particle-path-18 {
+            animation: particleFlow18 4.6s linear infinite;
+            animation-delay: 0.3s;
+        }
+
+        .particle-path-19 {
+            animation: particleFlow19 5.0s linear infinite;
+            animation-delay: 0.6s;
+        }
+
+        .particle-path-20 {
+            animation: particleFlow20 4.4s linear infinite;
+            animation-delay: 0.8s;
+        }
+
+        .particle-path-21 {
+            animation: particleFlow21 4.9s linear infinite;
+            animation-delay: 1.1s;
+        }
+
+        .particle-path-22 {
+            animation: particleFlow22 4.3s linear infinite;
+            animation-delay: 1.3s;
+        }
+
+        .particle-path-23 {
+            animation: particleFlow23 5.1s linear infinite;
+            animation-delay: 1.6s;
+        }
+
+        .particle-path-24 {
+            animation: particleFlow24 4.7s linear infinite;
+            animation-delay: 1.8s;
+        }
+
+        .particle-path-25 {
+            animation: particleFlow25 4.5s linear infinite;
             animation-delay: 2.1s;
         }
-        
-        .node-12 {
-            bottom: 40%;
-            right: 25%;
+
+        .particle-path-26 {
+            animation: particleFlow26 5.2s linear infinite;
             animation-delay: 2.3s;
         }
-        
-        .node-13 {
-            bottom: 15%;
-            left: 35%;
-            animation-delay: 2.7s;
-        }
-        
-        .node-14 {
-            bottom: 15%;
-            right: 35%;
-            animation-delay: 3.1s;
-        }
-        
-        .node-15 {
-            top: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation-delay: 3.5s;
-        }
-        
-        .node-16 {
-            top: 50%;
-            left: 30%;
-            animation-delay: 3.9s;
-        }
-        
-        .node-17 {
-            top: 50%;
-            right: 30%;
-            animation-delay: 4.2s;
+
+        .particle-path-27 {
+            animation: particleFlow27 4.1s linear infinite;
+            animation-delay: 0.15s;
         }
 
-        .connection-line {
+        .particle-path-28 {
+            animation: particleFlow28 4.8s linear infinite;
+            animation-delay: 0.35s;
+        }
+
+        .particle-path-29 {
+            animation: particleFlow29 4.6s linear infinite;
+            animation-delay: 0.55s;
+        }
+
+        .particle-path-30 {
+            animation: particleFlow30 5.0s linear infinite;
+            animation-delay: 0.75s;
+        }
+
+        /* 3D Particle Paths - Evenly Distributed in All Directions (Random-looking but Equal) */
+        /* Using spherical coordinates for uniform distribution: x=r*sin(θ)*cos(φ), y=r*sin(θ)*sin(φ), z=r*cos(θ) */
+        /* Radius: 280px for all particles */
+        
+        @keyframes particleFlow1 {
+            /* θ=15°, φ=0° - Upper front */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(0, 72px, 270px) scale(1); }
+            100% { opacity: 0; transform: translate3d(0, 72px, 270px) scale(0); }
+        }
+
+        @keyframes particleFlow2 {
+            /* θ=15°, φ=72° - Upper right-front */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(68px, 220px, 270px) scale(1); }
+            100% { opacity: 0; transform: translate3d(68px, 220px, 270px) scale(0); }
+        }
+
+        @keyframes particleFlow3 {
+            /* θ=15°, φ=144° - Upper right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(220px, 68px, 270px) scale(1); }
+            100% { opacity: 0; transform: translate3d(220px, 68px, 270px) scale(0); }
+        }
+
+        @keyframes particleFlow4 {
+            /* θ=15°, φ=216° - Upper back-right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(220px, -68px, 270px) scale(1); }
+            100% { opacity: 0; transform: translate3d(220px, -68px, 270px) scale(0); }
+        }
+
+        @keyframes particleFlow5 {
+            /* θ=15°, φ=288° - Upper back-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(68px, -220px, 270px) scale(1); }
+            100% { opacity: 0; transform: translate3d(68px, -220px, 270px) scale(0); }
+        }
+
+        @keyframes particleFlow6 {
+            /* θ=45°, φ=36° - Mid-upper front-right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(115px, 83px, 198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(115px, 83px, 198px) scale(0); }
+        }
+
+        @keyframes particleFlow7 {
+            /* θ=45°, φ=108° - Mid-upper right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(198px, 115px, 198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(198px, 115px, 198px) scale(0); }
+        }
+
+        @keyframes particleFlow8 {
+            /* θ=45°, φ=180° - Mid-upper back */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(0, 198px, 198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(0, 198px, 198px) scale(0); }
+        }
+
+        @keyframes particleFlow9 {
+            /* θ=45°, φ=252° - Mid-upper back-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-198px, 115px, 198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-198px, 115px, 198px) scale(0); }
+        }
+
+        @keyframes particleFlow10 {
+            /* θ=45°, φ=324° - Mid-upper front-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-115px, 83px, 198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-115px, 83px, 198px) scale(0); }
+        }
+
+        @keyframes particleFlow11 {
+            /* θ=75°, φ=60° - Lower-upper front-right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(234px, 135px, 72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(234px, 135px, 72px) scale(0); }
+        }
+
+        @keyframes particleFlow12 {
+            /* θ=75°, φ=132° - Lower-upper right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(135px, 234px, 72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(135px, 234px, 72px) scale(0); }
+        }
+
+        @keyframes particleFlow13 {
+            /* θ=75°, φ=204° - Lower-upper back */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-135px, 234px, 72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-135px, 234px, 72px) scale(0); }
+        }
+
+        @keyframes particleFlow14 {
+            /* θ=75°, φ=276° - Lower-upper back-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-234px, 135px, 72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-234px, 135px, 72px) scale(0); }
+        }
+
+        @keyframes particleFlow15 {
+            /* θ=75°, φ=348° - Lower-upper front-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-234px, -135px, 72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-234px, -135px, 72px) scale(0); }
+        }
+
+        @keyframes particleFlow16 {
+            /* θ=90°, φ=24° - Equator front-right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(115px, 51px, 0) scale(1); }
+            100% { opacity: 0; transform: translate3d(115px, 51px, 0) scale(0); }
+        }
+
+        @keyframes particleFlow17 {
+            /* θ=90°, φ=96° - Equator right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(51px, 278px, 0) scale(1); }
+            100% { opacity: 0; transform: translate3d(51px, 278px, 0) scale(0); }
+        }
+
+        @keyframes particleFlow18 {
+            /* θ=90°, φ=168° - Equator back */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-51px, 278px, 0) scale(1); }
+            100% { opacity: 0; transform: translate3d(-51px, 278px, 0) scale(0); }
+        }
+
+        @keyframes particleFlow19 {
+            /* θ=90°, φ=240° - Equator back-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-278px, 51px, 0) scale(1); }
+            100% { opacity: 0; transform: translate3d(-278px, 51px, 0) scale(0); }
+        }
+
+        @keyframes particleFlow20 {
+            /* θ=90°, φ=312° - Equator front-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-278px, -51px, 0) scale(1); }
+            100% { opacity: 0; transform: translate3d(-278px, -51px, 0) scale(0); }
+        }
+
+        @keyframes particleFlow21 {
+            /* θ=105°, φ=48° - Lower front-right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(234px, -135px, -72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(234px, -135px, -72px) scale(0); }
+        }
+
+        @keyframes particleFlow22 {
+            /* θ=105°, φ=120° - Lower right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(135px, -234px, -72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(135px, -234px, -72px) scale(0); }
+        }
+
+        @keyframes particleFlow23 {
+            /* θ=105°, φ=192° - Lower back */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-135px, -234px, -72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-135px, -234px, -72px) scale(0); }
+        }
+
+        @keyframes particleFlow24 {
+            /* θ=105°, φ=264° - Lower back-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-234px, -135px, -72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-234px, -135px, -72px) scale(0); }
+        }
+
+        @keyframes particleFlow25 {
+            /* θ=105°, φ=336° - Lower front-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-234px, 135px, -72px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-234px, 135px, -72px) scale(0); }
+        }
+
+        @keyframes particleFlow26 {
+            /* θ=135°, φ=72° - Lower-mid front-right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(198px, -115px, -198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(198px, -115px, -198px) scale(0); }
+        }
+
+        @keyframes particleFlow27 {
+            /* θ=135°, φ=144° - Lower-mid right */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(115px, -198px, -198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(115px, -198px, -198px) scale(0); }
+        }
+
+        @keyframes particleFlow28 {
+            /* θ=135°, φ=216° - Lower-mid back */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-115px, -198px, -198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-115px, -198px, -198px) scale(0); }
+        }
+
+        @keyframes particleFlow29 {
+            /* θ=135°, φ=288° - Lower-mid back-left */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(-198px, -115px, -198px) scale(1); }
+            100% { opacity: 0; transform: translate3d(-198px, -115px, -198px) scale(0); }
+        }
+
+        @keyframes particleFlow30 {
+            /* θ=165°, φ=0° - Bottom pole area */
+            0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0); }
+            5% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+            95% { opacity: 1; transform: translate3d(0, -72px, -270px) scale(1); }
+            100% { opacity: 0; transform: translate3d(0, -72px, -270px) scale(0); }
+        }
+
+
+        /* Holographic Grid Overlay for Depth */
+        .holographic-grid {
             position: absolute;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(18, 159, 202, 0.2), transparent);
-            animation: flow 4s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) perspective(1000px) rotateX(60deg);
+            width: 1000px;
+            height: 1000px;
+            background-image: 
+                linear-gradient(rgba(18, 159, 202, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 159, 202, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+            animation: gridMove 20s linear infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.08);
-                opacity: 0.6;
-            }
+        @keyframes gridMove {
+            0% { transform: translate(-50%, -50%) perspective(1000px) rotateX(60deg) translate(0, 0); }
+            100% { transform: translate(-50%, -50%) perspective(1000px) rotateX(60deg) translate(50px, 50px); }
         }
-        
-        .node:not(.node-center):not(.node-1):not(.node-6):not(.node-15) {
-            transform: translate(-50%, -50%);
-        }
-        
-        @keyframes flow {
-            0%, 100% {
-                opacity: 0.2;
-            }
-            50% {
-                opacity: 0.4;
-            }
-        }
-        
-                 @keyframes dataFlow {
-             0%, 100% {
-                 transform: translate(-50%, -50%) scale(1);
-                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
-             }
-             25% {
-                 transform: translate(-50%, -50%) scale(1.15);
-                 box-shadow: 0 0 30px rgba(18, 159, 202, 0.9);
-             }
-             50% {
-                 transform: translate(-50%, -50%) scale(1);
-                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
-             }
-             75% {
-                 transform: translate(-50%, -50%) scale(0.95);
-                 box-shadow: 0 0 15px rgba(18, 159, 202, 0.5);
-             }
-         }
-        
-        .node-1, .node-6, .node-15 {
-            animation: pulse 3s ease-in-out infinite, dataFlowX 4s ease-in-out infinite;
-        }
-        
-                 @keyframes dataFlowX {
-             0%, 100% {
-                 transform: translateX(-50%) scale(1);
-                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
-             }
-             25% {
-                 transform: translateX(-50%) scale(1.15);
-                 box-shadow: 0 0 30px rgba(18, 159, 202, 0.9);
-             }
-             50% {
-                 transform: translateX(-50%) scale(1);
-                 box-shadow: 0 0 20px rgba(18, 159, 202, 0.6);
-             }
-             75% {
-                 transform: translateX(-50%) scale(0.95);
-                 box-shadow: 0 0 15px rgba(18, 159, 202, 0.5);
-             }
-         }
-        
-        .connection-lines {
-            animation: linePulse 4s ease-in-out infinite;
-        }
-        
-                 @keyframes linePulse {
-             0%, 100% {
-                 opacity: 0.4;
-                 stroke-width: 1;
-             }
-             25% {
-                 opacity: 0.65;
-                 stroke-width: 1.5;
-             }
-             50% {
-                 opacity: 0.5;
-                 stroke-width: 1;
-             }
-             75% {
-                 opacity: 0.6;
-                 stroke-width: 1.3;
-             }
-         }
 
-                 .hero-title {
-             font-size: 72px;
-             font-weight: 700;
-             color: #FFFFFF;
-             margin-bottom: 30px;
-             line-height: 1.1;
-             letter-spacing: -1px;
-             position: relative;
-             z-index: 2;
-             font-family: 'Poppins', sans-serif;
-         }
+        /* Enhanced Hero Typography with Glow Effects */
+        .hero-title {
+            font-size: 72px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 2;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
 
-         .hero-subtitle {
-             font-size: 20px;
-             color: #FFFFFF;
-             margin-bottom: 50px;
-             max-width: 70%;
-             line-height: 1.6;
-             position: relative;
-             z-index: 2;
-             font-family: 'Poppins', sans-serif;
-         }
+        .hero-subtitle {
+            font-size: 20px;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+            max-width: 70%;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
 
         .hero-buttons {
             display: flex;
@@ -723,7 +1106,7 @@
          }
 
         .stat-item {
-            text-align: center;
+            text-align: left;
         }
 
         .stat-number {
@@ -754,7 +1137,7 @@
          .about-image {
              flex: 0 0 400px;
              max-width: 100%;
-             text-align: center;
+             text-align: left;
          }
 
          .about-icon {
@@ -774,7 +1157,7 @@
          .about-content {
              flex: 1;
              min-width: 300px;
-             text-align: center;
+             text-align: left;
          }
 
          .about-title {
@@ -783,7 +1166,7 @@
              color: #FFFFFF;
              margin-bottom: 20px;
              line-height: 1.2;
-             text-align: center;
+             text-align: left;
          }
 
          .about-text {
@@ -791,7 +1174,7 @@
              color: #FFFFFF;
              line-height: 1.7;
              margin-bottom: 30px;
-             text-align: center;
+             text-align: left;
          }
 
          .about-content .btn {
@@ -835,6 +1218,16 @@
               color: #FFFFFF;
               margin-bottom: 20px;
               line-height: 1.2;
+              text-align: center;
+          }
+
+          .team-subtitle {
+              font-size: 18px;
+              color: rgba(255, 255, 255, 0.8);
+              max-width: 800px;
+              margin: 0 auto;
+              line-height: 1.6;
+              text-align: center;
           }
 
                       /* Team Members Container */
@@ -866,7 +1259,7 @@
             .team-member-visual {
                 flex: 0 0 400px;
                 max-width: 100%;
-                text-align: center;
+                text-align: left;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -907,6 +1300,7 @@
                 color: #129fca;
                 margin-bottom: 12px;
                 line-height: 1.2;
+                text-align: left;
             }
 
             .team-member-info .team-role {
@@ -914,14 +1308,39 @@
                 color: #FFFFFF;
                 opacity: 0.9;
                 margin-bottom: 25px;
+                text-align: left;
                 font-weight: 500;
             }
 
-            .team-member-info p {
+            .team-member-info p,
+            .team-member-info ul {
                 font-size: 17px;
                 color: #FFFFFF;
                 line-height: 1.8;
                 opacity: 0.85;
+            }
+
+            .team-member-info ul {
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+            }
+
+            .team-member-info ul li {
+                position: relative;
+                padding-left: 25px;
+                margin-bottom: 12px;
+                line-height: 1.6;
+            }
+
+            .team-member-info ul li::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                top: 2px;
+                color: #129fca;
+                font-size: 20px;
+                line-height: 1;
             }
 
             /* Subtle Divider Between Team Members */
@@ -981,7 +1400,7 @@
           .team-node {
               position: absolute;
               width: 280px;
-              text-align: center;
+              text-align: left;
               cursor: pointer;
               z-index: 2;
               transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1156,6 +1575,7 @@
               color: #FFFFFF;
               margin-bottom: 20px;
               line-height: 1.2;
+              text-align: center;
           }
 
           .faq-container {
@@ -1256,6 +1676,7 @@
              font-weight: 700;
              color: #FFFFFF;
              margin-bottom: 20px;
+             text-align: center;
          }
 
          .social-subtitle {
@@ -1312,11 +1733,13 @@
             color: #FFFFFF;
             margin-bottom: 20px;
             line-height: 1.2;
+            text-align: center;
         }
 
         .features-subtitle {
             font-size: 20px;
             color: #FFFFFF;
+            text-align: center;
             line-height: 1.6;
         }
 
@@ -1335,7 +1758,7 @@
             background-color: rgba(18, 159, 202, 0.05);
             border: 1px solid rgba(18, 159, 202, 0.2);
             border-radius: 12px;
-            text-align: center;
+            text-align: left;
             transition: all 0.3s ease;
         }
         
@@ -1507,6 +1930,36 @@
             color: #129fca;
             margin-bottom: 15px;
             line-height: 1.3;
+            text-align: center;
+            position: relative;
+            display: block;
+            width: fit-content;
+            max-width: calc(100% - 100px);
+            margin-left: auto;
+            margin-right: auto;
+            white-space: nowrap;
+        }
+
+        .feature-card h3::before,
+        .feature-card h3::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            transform: translateY(-50%);
+        }
+
+        .feature-card h3::before {
+            right: 100%;
+            margin-right: 8px;
+            background: linear-gradient(90deg, transparent, rgba(18, 159, 202, 0.3), rgba(18, 159, 202, 0.1));
+        }
+
+        .feature-card h3::after {
+            left: 100%;
+            margin-left: 8px;
+            background: linear-gradient(90deg, rgba(18, 159, 202, 0.1), rgba(18, 159, 202, 0.3), transparent);
         }
 
                 .feature-card p {
@@ -1530,17 +1983,19 @@
               margin-bottom: 80px;
           }
 
-          .use-cases-title {
-              font-size: 48px;
-              font-weight: 700;
-              color: #FFFFFF;
-              margin-bottom: 20px;
-              line-height: 1.2;
-          }
+        .use-cases-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-align: center;
+        }
 
           .use-cases-subtitle {
               font-size: 20px;
               color: #FFFFFF;
+              text-align: center;
               line-height: 1.6;
               opacity: 0.9;
           }
@@ -1548,7 +2003,7 @@
                      .terminal-container {
                max-width: 900px;
                margin: 0 auto;
-               background: #0a0a0a;
+               background: rgba(10, 30, 45, 0.8);
                border: 2px solid rgba(18, 159, 202, 0.4);
                border-radius: 8px;
                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 
@@ -1558,7 +2013,7 @@
            }
 
            .terminal-header {
-               background: rgba(18, 159, 202, 0.1);
+               background: rgba(18, 159, 202, 0.15);
                padding: 12px 20px;
                border-bottom: 1px solid rgba(18, 159, 202, 0.3);
                display: flex;
@@ -1626,7 +2081,7 @@
            }
 
            .use-case-terminal {
-               text-align: center;
+               text-align: left;
            }
 
            .use-case-terminal-icon {
@@ -1650,7 +2105,37 @@
                color: #129fca;
                margin-bottom: 20px;
                line-height: 1.3;
+               text-align: center;
                font-family: 'Courier New', monospace;
+               position: relative;
+               display: block;
+               width: fit-content;
+               max-width: calc(100% - 100px);
+               margin-left: auto;
+               margin-right: auto;
+               white-space: nowrap;
+           }
+
+           .use-case-terminal h3::before,
+           .use-case-terminal h3::after {
+               content: '';
+               position: absolute;
+               top: 50%;
+               width: 30px;
+               height: 1px;
+               transform: translateY(-50%);
+           }
+
+           .use-case-terminal h3::before {
+               right: 100%;
+               margin-right: 8px;
+               background: linear-gradient(90deg, transparent, rgba(18, 159, 202, 0.3), rgba(18, 159, 202, 0.1));
+           }
+
+           .use-case-terminal h3::after {
+               left: 100%;
+               margin-left: 8px;
+               background: linear-gradient(90deg, rgba(18, 159, 202, 0.1), rgba(18, 159, 202, 0.3), transparent);
            }
 
            .use-case-terminal p {
@@ -1770,22 +2255,26 @@
                  left: 60%;
              }
 
+            /* Mobile 3D Network - Scaled Down but Maintains 3D Effect */
             .node-network {
                 width: 500px;
                 height: 500px;
             }
 
-            .node-network svg {
-                width: 500px !important;
-                height: 500px !important;
+            .node-container {
+                animation: rotate3D 30s linear infinite;
             }
 
-            .connection-lines {
-                width: 500px !important;
-                height: 500px !important;
-                transform: scale(0.625);
-                transform-origin: 0 0;
+            .data-particle {
+                width: 4px;
+                height: 4px;
             }
+
+            .holographic-grid {
+                width: 600px;
+                height: 600px;
+            }
+
 
             .node {
                 width: 28px;
@@ -1797,137 +2286,21 @@
                 height: 10px;
             }
 
+            /* Mobile Pulsar Center - Scaled down */
             .node-center {
-                width: 35px;
-                height: 35px;
+                width: 60px;
+                height: 60px;
+                margin-left: -30px;
+                margin-top: -30px;
             }
 
-            /* Position nodes exactly on line endpoints for mobile */
-            /* Center node at (400, 400) in 800px = 50%, 50% */
-            .node-center {
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+            .node-center::after {
+                width: 28px;
+                height: 28px;
+                margin-left: -14px;
+                margin-top: -14px;
             }
 
-            /* Top center at (400, 20) = 50%, 2.5% */
-            .node-1 {
-                top: 2.5%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            /* Top left at (120, 200) = 15%, 25% */
-            .node-2 {
-                top: 25%;
-                left: 15%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* Top right at (680, 200) = 85%, 25% */
-            .node-3 {
-                top: 25%;
-                left: 85%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* Bottom left at (120, 600) = 15%, 75% */
-            .node-4 {
-                top: 75%;
-                left: 15%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* Bottom right at (680, 600) = 85%, 75% */
-            .node-5 {
-                top: 75%;
-                left: 85%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* Bottom center at (400, 780) = 50%, 97.5% */
-            .node-6 {
-                top: 97.5%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            /* At (200, 120) = 25%, 15% */
-            .node-7 {
-                top: 15%;
-                left: 25%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (600, 120) = 75%, 15% */
-            .node-8 {
-                top: 15%;
-                left: 75%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (120, 320) = 15%, 40% */
-            .node-9 {
-                top: 40%;
-                left: 15%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (680, 320) = 85%, 40% */
-            .node-10 {
-                top: 40%;
-                left: 85%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (200, 600) = 25%, 75% */
-            .node-11 {
-                top: 75%;
-                left: 25%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (600, 600) = 75%, 75% */
-            .node-12 {
-                top: 75%;
-                left: 75%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (280, 680) = 35%, 85% */
-            .node-13 {
-                top: 85%;
-                left: 35%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (520, 680) = 65%, 85% */
-            .node-14 {
-                top: 85%;
-                left: 65%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (400, 480) = 50%, 60% */
-            .node-15 {
-                top: 60%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            /* At (240, 400) = 30%, 50% */
-            .node-16 {
-                top: 50%;
-                left: 30%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* At (560, 400) = 70%, 50% */
-            .node-17 {
-                top: 50%;
-                left: 70%;
-                transform: translate(-50%, -50%);
-            }
 
              .hero-section {
                  padding: 120px 20px 80px;
@@ -1992,8 +2365,8 @@
                      border-radius: 40px;
                      overflow: hidden;
                      position: relative;
-                     background: #000;
-                     border: 8px solid #1a1a1a;
+                     background: rgba(10, 30, 45, 0.9);
+                     border: 8px solid rgba(18, 159, 202, 0.3);
                      box-shadow: 0 0 0 2px rgba(18, 159, 202, 0.3),
                                  0 20px 60px rgba(0, 0, 0, 0.8);
                  }
@@ -2118,7 +2491,7 @@
               }
 
               .team-member-info {
-                  text-align: center;
+                  text-align: left;
                   min-width: 100%;
               }
 
@@ -2180,87 +2553,69 @@
 
            <!-- Navigation Header -->
       <nav class="navbar" id="navbar">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <a href="#home" class="nav-logo">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <a href="#hero" class="nav-logo">
                      <img src="https://raw.githubusercontent.com/DomXEQ/xeqnetwork/main/Equilibria.png" alt="Equilibria Logo" />
                  </a>
          <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
                                        <ul class="nav-links" id="navLinks">
-              <li><a href="https://nonkyc.io/market/XEQ_BTC" class="mobile-menu-btn" target="_blank">Buy $XEQ</a></li>
+              <li><a href="https://nonkyc.io/market/XEQ_BTC" class="mobile-menu-btn" target="_blank">$XEQ</a></li>
               <li><a href="https://equilibria-network.gitbook.io/docs/" class="mobile-menu-btn" target="_blank">Docs</a></li>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#features">Features</a></li>
+              <li><a href="#hero">Home</a></li>
               <li><a href="#use-cases">Use Cases</a></li>
-              <li><a href="#team">Team</a></li>
               <li><a href="#faq">FAQ</a></li>
-              <li><a href="#social">Social</a></li>
           </ul>
          <div class="nav-buttons">
-             <a href="https://nonkyc.io/market/XEQ_BTC" class="nav-btn nav-btn-primary" target="_blank">Buy $XEQ</a>
+             <a href="https://nonkyc.io/market/XEQ_BTC" class="nav-btn nav-btn-primary" target="_blank">$XEQ</a>
              <a href="https://equilibria-network.gitbook.io/docs/" class="nav-btn nav-btn-outline" target="_blank">Docs</a>
          </div>
      </nav>
 
                        <!-- Hero Section -->
-       <section class="hero-section" id="home">
+       <section class="hero-section" id="hero">
+         <!-- Holographic Grid Background -->
+         <div class="holographic-grid"></div>
+         
+         <!-- 3D Holographic Network Visualization -->
          <div class="node-network">
              <div class="node-container">
-                 <div class="node node-1"></div>
-                 <div class="node node-2"></div>
-                 <div class="node node-3"></div>
-                 <div class="node node-4"></div>
-                 <div class="node node-5"></div>
-                 <div class="node node-6"></div>
-                 <div class="node node-7"></div>
-                 <div class="node node-8"></div>
-                 <div class="node node-9"></div>
-                 <div class="node node-10"></div>
-                 <div class="node node-11"></div>
-                 <div class="node node-12"></div>
-                 <div class="node node-13"></div>
-                 <div class="node node-14"></div>
-                 <div class="node node-15"></div>
-                 <div class="node node-16"></div>
-                 <div class="node node-17"></div>
+                 <!-- Pulsar/Oracle Center - 3D Rotating Orb -->
                  <div class="node node-center"></div>
-                 <!-- Connection lines drawn with SVG - creating a mesh network -->
-                                   <svg class="connection-lines" width="800" height="800" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;">
-                      <!-- Lines from center to outer nodes -->
-                      <line x1="400" y1="20" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
-                      <line x1="120" y1="200" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
-                      <line x1="680" y1="200" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
-                      <line x1="120" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
-                      <line x1="680" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
-                      <line x1="400" y1="780" x2="400" y2="400" stroke="rgba(18,159,202,0.4)" stroke-width="1"/>
-                      <!-- Lines to additional nodes -->
-                      <line x1="200" y1="120" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="600" y1="120" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="120" y1="320" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="680" y1="320" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="200" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="600" y1="600" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="280" y1="680" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="520" y1="680" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="400" y1="480" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="240" y1="400" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <line x1="560" y1="400" x2="400" y2="400" stroke="rgba(18,159,202,0.35)" stroke-width="1"/>
-                      <!-- Inter-node connections for mesh network -->
-                      <line x1="200" y1="120" x2="120" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="600" y1="120" x2="680" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="200" y1="120" x2="600" y2="120" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="120" y1="320" x2="120" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="680" y1="320" x2="680" y2="200" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="200" y1="600" x2="120" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="600" y1="600" x2="680" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="280" y1="680" x2="200" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="520" y1="680" x2="600" y2="600" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="240" y1="400" x2="120" y2="320" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                      <line x1="560" y1="400" x2="680" y2="320" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
-                  </svg>
+                 
+                 <!-- Animated Data Particles - Shooting out from Pulsar in ALL 3D Directions -->
+                 <div class="data-particle particle-path-1"></div>
+                 <div class="data-particle particle-path-2"></div>
+                 <div class="data-particle particle-path-3"></div>
+                 <div class="data-particle particle-path-4"></div>
+                 <div class="data-particle particle-path-5"></div>
+                 <div class="data-particle particle-path-6"></div>
+                 <div class="data-particle particle-path-7"></div>
+                 <div class="data-particle particle-path-8"></div>
+                 <div class="data-particle particle-path-9"></div>
+                 <div class="data-particle particle-path-10"></div>
+                 <div class="data-particle particle-path-11"></div>
+                 <div class="data-particle particle-path-12"></div>
+                 <div class="data-particle particle-path-13"></div>
+                 <div class="data-particle particle-path-14"></div>
+                 <div class="data-particle particle-path-15"></div>
+                 <div class="data-particle particle-path-16"></div>
+                 <div class="data-particle particle-path-17"></div>
+                 <div class="data-particle particle-path-18"></div>
+                 <div class="data-particle particle-path-19"></div>
+                 <div class="data-particle particle-path-20"></div>
+                 <div class="data-particle particle-path-21"></div>
+                 <div class="data-particle particle-path-22"></div>
+                 <div class="data-particle particle-path-23"></div>
+                 <div class="data-particle particle-path-24"></div>
+                 <div class="data-particle particle-path-25"></div>
+                 <div class="data-particle particle-path-26"></div>
+                 <div class="data-particle particle-path-27"></div>
+                 <div class="data-particle particle-path-28"></div>
+                 <div class="data-particle particle-path-29"></div>
+                 <div class="data-particle particle-path-30"></div>
              </div>
          </div>
         <h1 class="hero-title">The World's First Privacy Developer Platform</h1>
-        <p class="hero-subtitle">Back the privacy infrastructure every builder will need. Stake $XEQ to secure Equilibria's confidential dApps and participate in the upside.</p>
+        <p class="hero-subtitle">The infrastructure powering the next generation of private applications. Build on Equilibria, utilize $XEQ.</p>
                  <div class="hero-buttons">
              <a href="#" class="btn btn-primary">Join Testnet</a>
          </div>
@@ -2343,7 +2698,7 @@
         <div class="about-content">
             <h2 class="about-title">About Equilibria</h2>
             <p class="about-text">
-                Equilibria (<span class="highlight">$XEQ</span>) is a next-generation privacy cryptocurrency designed for developers and innovators building private decentralized applications and secure data feeds. Launching in 2025, Equilibria combines cutting-edge privacy technology with a sustainable Proof-of-Stake (POS) consensus model, allowing you to earn XEQ rewards by staking, validating transactions, and actively participating in network governance.
+                Equilibria (<span class="highlight">$XEQ</span>) is the infrastructure layer for private applications. Developers need a platform that protects both transactions and data, Equilibria provides that foundation. By holding $XEQ, you're supporting the network that powers private dApps.
             </p>
             <a href="https://equilibria-network.gitbook.io/docs/" class="btn btn-primary" target="_blank">Read Documentation</a>
         </div>
@@ -2352,8 +2707,8 @@
          <!-- Features Section -->
      <section class="features-section" id="features">
         <div class="features-header">
-            <h2 class="features-title">Key Features</h2>
-            <p class="features-subtitle">Stake $XEQ, Build, Shape the Future</p>
+            <h2 class="features-title">Why Equilibria</h2>
+            <p class="features-subtitle">Developer trusted privacy</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -2388,8 +2743,8 @@
                         <path d="M 120 100 L 130 100 M 120 100 L 125 95 M 120 100 L 125 105" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <h3>Private Oracle System</h3>
-                <p>Equilibria's Oracle Node Network delivers secure, real-time data feeds to decentralized applications (dApps). Similar to a satellite mesh network, our decentralized nodes validate and transmit off-chain data—such as asset prices or market metrics—ensuring accuracy, reliability, and enhanced privacy for integrated projects.</p>
+                <h3>Private Oracle</h3>
+                <p>Delivers real-time market data and price feeds to applications while maintaining complete privacy. Every private app needs this infrastructure—creating natural demand for $XEQ as the network grows.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -2418,8 +2773,8 @@
                         <circle cx="100" cy="45" r="4" fill="#129fca"/>
                     </svg>
                 </div>
-                <h3>Private Custom Blockchain</h3>
-                <p>Built on a Monero-based fork of the Oxen codebase, Equilibria offers advanced privacy through ring signatures, stealth addresses, and anonymous transactions. This foundation protects user data while enabling developers to build secure, censorship-resistant applications on a truly private blockchain.</p>
+                <h3>L1 Monero-Fork</h3>
+                <p>Built on proven privacy technology that protects transactions and user data by default. This is the foundation developers choose to build trusted applications. As adoption increases, $XEQ becomes more valuable as the native asset.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -2455,8 +2810,8 @@
                         <circle cx="150" cy="140" r="6" fill="#FFFFFF" opacity="0.8"/>
                     </svg>
                 </div>
-                <h3>Incentivized Node Economy</h3>
-                <p>Operators of Equilibria's oracle and data feed nodes earn XEQ through network rewards and service fees paid by dApps leveraging the platform. This model incentivizes long-term network participation and decentralization, offering meaningful returns for those who help power the Equilibria ecosystem.</p>
+                <h3>XEQ Network</h3>
+                <p>Stake $XEQ to help secure the network and earn rewards. As more developers build on Equilibria and more users adopt private applications, the network's value increases—benefiting those who support it.</p>
                          </div>
                                   </div>
      </section>
@@ -2465,7 +2820,7 @@
         <section class="use-cases-section" id="use-cases">
             <div class="use-cases-header">
                 <h2 class="use-cases-title">Use Cases</h2>
-                <p class="use-cases-subtitle">Powering the next generation of private decentralized applications</p>
+                <p class="use-cases-subtitle">Real-world applications built on privacy infrastructure</p>
             </div>
             <div class="terminal-container">
                 <div class="terminal-header">
@@ -2511,8 +2866,8 @@
                                     <line x1="90" y1="40" x2="60" y2="60" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
                                 </svg>
                             </div>
-                            <h3>Decentralized Exchanges</h3>
-                            <p>Enable private trading on DEX platforms with Equilibria's private data oracle delivering real-time price feeds and market data while preserving transaction privacy and protecting user information.</p>
+                            <h3>Private Trading</h3>
+                            <p>DEX platforms need private price feeds. As trading volume grows, so does demand for $XEQ to power these services.</p>
                         </div>
                     </div>
 
@@ -2537,8 +2892,8 @@
                                     <line x1="60" y1="70" x2="60" y2="75" stroke="rgba(18,159,202,0.3)" stroke-width="1"/>
                                 </svg>
                             </div>
-                            <h3>Privacy-Centric Protocols</h3>
-                            <p>Build anonymous protocols and applications with Equilibria's private data oracle, ensuring sensitive information and user data remain protected while maintaining full functionality and transparency where needed.</p>
+                            <h3>Anonymous Apps</h3>
+                            <p>Privacy-first protocols are the future. Each new app built on Equilibria increases the value of the $XEQ ecosystem.</p>
                         </div>
                     </div>
 
@@ -2565,8 +2920,8 @@
                                     <line x1="70" y1="60" x2="65" y2="80" stroke="rgba(18,159,202,0.4)" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3>DeFI & Stablecoins</h3>
-                            <p>Secure DeFi applications and stablecoin protocols with reliable private data feeds from Equilibria's oracle network, providing accurate market rates and economic data without compromising user privacy.</p>
+                            <h3>Private DeFi</h3>
+                            <p>DeFi needs privacy. As private DeFi grows, Equilibria's oracle network becomes essential, driving demand for $XEQ.</p>
                         </div>
                     </div>
 
@@ -2594,8 +2949,8 @@
                                     <path d="M 100 85 L 95 90 L 100 95" stroke="#129fca" stroke-width="2" fill="none" stroke-linecap="round"/>
                                 </svg>
                             </div>
-                            <h3>Dev Tools & Data Services</h3>
-                            <p>Integrate Equilibria's private data oracle into your development toolkit for secure APIs, analytics platforms, and data services that deliver real-time information while protecting both providers and consumers.</p>
+                            <h3>Developer Tools</h3>
+                            <p>Developers need privacy infrastructure. As more tools integrate Equilibria, the network effect strengthens $XEQ's position.</p>
                         </div>
                     </div>
                 </div>
@@ -2612,6 +2967,7 @@
       <section class="team-section" id="team">
            <div class="team-header">
                <h2 class="team-title">Our Team</h2>
+               <p class="team-subtitle">Built by experienced leaders who understand both the technical and strategic challenges of building privacy infrastructure at scale.</p>
            </div>
            <div class="team-members">
 
@@ -2738,7 +3094,7 @@
                       </svg>
                   </button>
                   <div class="faq-answer">
-                      <p>Equilibria (XEQ) is a next-generation privacy cryptocurrency launching in 2025, designed specifically for developers building private decentralized applications. Built on a Monero-based fork of the Oxen codebase, Equilibria combines advanced privacy technology with a sustainable Proof-of-Stake consensus model, enabling users to stake XEQ, validate transactions, and earn rewards while participating in network governance.</p>
+                      <p>Equilibria ($XEQ) is the infrastructure layer for private applications. Launching in 2025, it provides developers with both a private blockchain and data oracle network—everything needed to build truly private apps. As more developers build on Equilibria, the network becomes more valuable, creating value for $XEQ holders.</p>
                   </div>
               </div>
 
@@ -2750,7 +3106,7 @@
                       </svg>
                   </button>
                   <div class="faq-answer">
-                      <p>Equilibria's Private Oracle System operates as a decentralized network of nodes that validate and transmit off-chain data to decentralized applications. Similar to a satellite mesh network, our oracle nodes deliver secure, real-time data feeds—such as asset prices or market metrics—while ensuring accuracy, reliability, and enhanced privacy for integrated projects. The system maintains data integrity without compromising user privacy or sensitive information.</p>
+                      <p>Equilibria's oracle network delivers real-time data (prices, market information) to applications while maintaining privacy. As more apps use these services, they need $XEQ to access the network—creating natural demand that increases value for holders.</p>
                   </div>
               </div>
 
@@ -2762,7 +3118,7 @@
                       </svg>
                   </button>
                   <div class="faq-answer">
-                      <p>To stake XEQ, you'll need to run a validator node with a minimum stake requirement. Validators earn XEQ rewards through network block rewards and transaction fees. Additionally, operators of oracle and data feed nodes can earn XEQ through service fees paid by dApps leveraging the platform. The Proof-of-Stake model incentivizes long-term network participation and decentralization, offering meaningful returns for those who help power the Equilibria ecosystem.</p>
+                      <p>Holders can stake $XEQ to help secure the network. As the platform grows and more applications use Equilibria's services, transaction volume increases—creating value for those who support the network. Your stake contributes to the infrastructure that makes private applications possible.</p>
                   </div>
               </div>
 
@@ -2774,7 +3130,7 @@
                       </svg>
                   </button>
                   <div class="faq-answer">
-                      <p>Equilibria distinguishes itself through its developer-first approach and integrated private data oracle network. Unlike traditional privacy coins focused solely on transaction privacy, Equilibria provides a complete platform for building privacy-first decentralized applications. The combination of ring signatures, stealth addresses, anonymous transactions, and a decentralized oracle network creates a unique ecosystem that protects both user privacy and application data while enabling developers to build innovative privacy-enhancing solutions.</p>
+                      <p>Equilibria is the only platform that combines a private blockchain with a private data oracle network. Other privacy coins only protect transactions. Equilibria provides the complete infrastructure developers need—making it the natural choice for building private apps. As this market grows, $XEQ is positioned to capture that value.</p>
                   </div>
               </div>
 
@@ -2786,7 +3142,7 @@
                       </svg>
                   </button>
                   <div class="faq-answer">
-                      <p>Equilibria is scheduled to launch in 2025. The network will begin with a testnet phase where developers and community members can participate, test the platform, and provide feedback. To stay updated on the launch timeline and join the testnet, follow our community channels and documentation. We're building towards a robust, secure, and privacy-focused blockchain that will empower developers to create the next generation of decentralized applications.</p>
+                      <p>Launching in 2025. We'll begin with a testnet where developers can build and test applications. Early supporters who utilize $XEQ are supporting the infrastructure that will power the next generation of private applications. Join our community to stay updated.</p>
                   </div>
               </div>
           </div>
