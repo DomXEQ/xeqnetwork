@@ -2040,7 +2040,6 @@
 
            .use-case-slide {
                display: none;
-               animation: fadeIn 0.5s ease;
            }
 
            .use-case-slide.active {
@@ -2137,14 +2136,12 @@
                align-items: center;
                justify-content: center;
                cursor: pointer;
-               transition: all 0.3s ease;
                z-index: 10;
            }
 
            .terminal-nav:hover {
                background: rgba(18, 159, 202, 0.2);
                border-color: #129fca;
-               transform: translateY(-50%) scale(1.1);
            }
 
            .terminal-nav.prev {
@@ -2503,6 +2500,8 @@
                      top: auto;
                      bottom: 20px;
                      transform: none;
+                     -webkit-tap-highlight-color: transparent;
+                     user-select: none;
                  }
 
                  .terminal-nav svg {
@@ -2524,6 +2523,11 @@
                      border-color: #129fca;
                  }
 
+                 .terminal-nav:active {
+                     transform: none !important;
+                     background: rgba(18, 159, 202, 0.3);
+                 }
+
                  .terminal-indicators {
                      display: none;
                  }
@@ -2536,10 +2540,11 @@
 
                  .use-case-terminal h3 {
                      font-size: 22px;
-                     text-align: center;
-                     margin-left: auto;
-                     margin-right: auto;
+                     text-align: left;
+                     margin-left: 0;
+                     margin-right: 0;
                      max-width: 100%;
+                     padding: 0 10px;
                  }
 
                  .use-case-terminal h3::before,
@@ -2550,6 +2555,7 @@
                  .use-case-terminal p {
                      font-size: 14px;
                      padding: 0 10px;
+                     text-align: left;
                  }
 
                            .team-section {
@@ -3390,13 +3396,10 @@
            let currentSlide = 0;
 
            function showSlide(index) {
-               // Remove active class from all slides and indicators
+               // Remove active class from all slides
                useCaseSlides.forEach(slide => slide.classList.remove('active'));
-               indicators.forEach(indicator => indicator.classList.remove('active'));
-
-               // Add active class to current slide and indicator
+               // Add active class to current slide
                useCaseSlides[index].classList.add('active');
-               indicators[index].classList.add('active');
                currentSlide = index;
            }
 
@@ -3410,9 +3413,20 @@
                showSlide(currentSlide);
            }
 
-           // Event listeners
-           nextBtn.addEventListener('click', nextSlide);
-           prevBtn.addEventListener('click', prevSlide);
+           // Simple event listeners - no animations
+           if (nextBtn) {
+               nextBtn.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   nextSlide();
+               });
+           }
+           
+           if (prevBtn) {
+               prevBtn.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   prevSlide();
+               });
+           }
 
            // Indicator clicks
            indicators.forEach((indicator, index) => {
